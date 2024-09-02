@@ -5,6 +5,10 @@ import Dashbaord from '../pages/adminSide/dashboard/Dashbaord';
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <App/>
+  },
+  {
     path: "/dashboard",
     element: <DashboardLayout></DashboardLayout>,
     children: [
