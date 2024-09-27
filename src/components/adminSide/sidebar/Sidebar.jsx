@@ -8,6 +8,7 @@ import { RiAdminLine } from 'react-icons/ri';
 import { RxDashboard } from 'react-icons/rx';
 import { NavLink } from 'react-router-dom';
 import { SiNginxproxymanager } from 'react-icons/si';
+import { GrDashboard } from "react-icons/gr";
 
 // update code 
 import { FaHome, FaUsers, FaWpforms } from 'react-icons/fa';
@@ -101,8 +102,8 @@ const Sidebar = () => {
                         {/* <NavigationItem to="/dashboard" icon={FaHome} label="Dashboard" /> */}
                         <NavigationItem
                             to="/dashboard"
-                            icon={FaCircleUser}
-                            label="Profile"
+                            icon={GrDashboard}
+                            label="Dashboard"
                         />
 
                         <li className="mb-4">
