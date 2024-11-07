@@ -20,6 +20,7 @@ import Dropdown from './Dropdown';
 import NavigationItem from './NavigationItem';
 
 const Sidebar = () => {
+    window.scrollTo(0, 0);
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     const toggleSidebar = () => {
@@ -27,10 +28,10 @@ const Sidebar = () => {
     };
 
 
-    const courseUrls =
+    const packageUrls =
         <>
-            <NavigationItem to="/dashboard/addCourse" icon={MdAddCircle} label="Add Courses" />
-            <NavigationItem to="/dashboard/manageCourses" icon={SiNginxproxymanager} label="Manage Courses" />
+            <NavigationItem to="/dashboard/add-package" icon={MdAddCircle} label="Add Package" />
+            <NavigationItem to="/dashboard/manageCourses" icon={SiNginxproxymanager} label="Manage Package" />
         </>
 
     const blogUrls =
@@ -82,12 +83,12 @@ const Sidebar = () => {
     return (
         <>
             <aside
-                className={`bg-gradient-to-b from-indigo-600 to-indigo-800 text-white transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-14'
+                className={`bg-gradient-to-b from-indigo-600 to-[#E94192] text-white transition-all duration-300 ${isSidebarOpen ? 'w-72' : 'w-14'
                     }`}
             >
                 <div className="flex justify-between items-center p-4 gap-8">
                     <div className={`text-2xl font-bold ${!isSidebarOpen && 'hidden'}`}>
-                        Ashikur's Dashboard 01
+                        SPA Dashboard
                     </div>
                     <button
                         onClick={toggleSidebar}
@@ -96,7 +97,7 @@ const Sidebar = () => {
                         {isSidebarOpen ? <IoCloseCircleOutline className='text-4xl' /> : <MdMenuOpen className='text-3xl' />}
                     </button>
                 </div>
-                
+
                 <nav className="flex-1 p-4">
                     <ul className={`space-y-2 pb-20 list-none ${!isSidebarOpen && 'hidden'} `}>
                         {/* <NavigationItem to="/dashboard" icon={FaHome} label="Dashboard" /> */}
@@ -106,8 +107,8 @@ const Sidebar = () => {
                             label="Dashboard"
                         />
 
-                        <li className="mb-4">
-                            <Dropdown buttonText="Courses" urls={courseUrls} />
+                        <li className="mb-4 mx-3">
+                            <Dropdown buttonText="Packages" urls={packageUrls} />
                         </li>
 
                         <li className="mb-4">

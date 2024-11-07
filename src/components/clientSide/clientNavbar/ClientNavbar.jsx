@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const ClientNavbar = () => {
 
@@ -24,7 +24,7 @@ const ClientNavbar = () => {
                         className="h-8 w-8"
                     />
                     <h1 className="text-2xl font-bold text-black custom-animated-underline">
-                        Dhaka Body Queen Spa
+                       <Link to={'/'}> Glorious Thai Spa</Link>
                     </h1>
                 </div>
 

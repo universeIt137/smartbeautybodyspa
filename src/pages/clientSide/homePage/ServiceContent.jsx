@@ -4,7 +4,7 @@ import { AiFillStar } from 'react-icons/ai';
 import { MdOutlinePhoneInTalk } from 'react-icons/md';
 import { FcApproval } from 'react-icons/fc';
 
-const ServiceContent = ({reverse}) => {
+const ServiceContent = ({ reverse }) => {
     return (
         <div>
             {/* Service Content Section */}
@@ -57,7 +57,15 @@ const ServiceContent = ({reverse}) => {
                     {/* Book Now Button */}
                     <div className="mx-auto">
                         <button className="mt-6 flex items-center gap-2 px-6 py-3 bg-pink-500 text-white font-bold rounded-xl shadow-md hover:bg-pink-600 transition duration-300">
-                            <MdOutlinePhoneInTalk /> Book Now
+                            <a
+                                href="https://wa.me/+8801988650873"
+                                className="text-white flex items-center gap-2"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <MdOutlinePhoneInTalk /> Book Now
+                            </a>
+
                         </button>
                     </div>
                 </div>

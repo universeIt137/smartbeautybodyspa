@@ -15,14 +15,38 @@ const HomePage = () => {
         <div>
             <SpaBanner></SpaBanner>
             <ServiceSection></ServiceSection>
-            <YoutubeSection></YoutubeSection>
-            <AboutSection></AboutSection>
-            <ProgressSection></ProgressSection>
-            <PhotoGallery></PhotoGallery>
-            <HoursOfOperation></HoursOfOperation>
-            <Testimonials></Testimonials>
-            <ContactUsSection></ContactUsSection>
-            <RelatedSearch></RelatedSearch>
+            <div className="lg:mt-40">
+                <YoutubeSection></YoutubeSection>
+            </div>
+
+            <div className="lg:mt-40">
+                <AboutSection></AboutSection>
+            </div>
+
+            <div className="lg:mt-40">
+                <ProgressSection></ProgressSection>
+            </div>
+
+
+            <div className="lg:mt-40">
+                <PhotoGallery></PhotoGallery>
+            </div>
+
+
+            <div className="lg:mt-40">
+                <HoursOfOperation></HoursOfOperation>
+            </div>
+
+            <div className="lg:mt-40">
+                <Testimonials></Testimonials>
+            </div>
+
+            <div className="lg:mt-40">
+                <ContactUsSection></ContactUsSection>
+            </div>
+            <div className="lg:my-4">
+                <RelatedSearch></RelatedSearch>
+            </div>
         </div>
     );
 };

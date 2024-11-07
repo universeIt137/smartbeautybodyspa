@@ -38,7 +38,7 @@ const ProgressSection = () => {
     return (
         <div ref={sectionRef} className="w-3/4 mx-auto mt-10">
            
-            <h2 className="text-4xl font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 text-center">
+            <h2 className="text-4xl mb-5 font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 text-center">
                 <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730890631/11.%20SPA-Center/HomePage/xddq0ehsgsoyrms2g994.png" alt="" className='mx-auto' />
             </h2>
             {progressData.map((item, index) => (

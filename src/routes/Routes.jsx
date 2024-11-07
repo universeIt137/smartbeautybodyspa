@@ -2,13 +2,14 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import DashboardLayout from '../layouts/DashboardLayout';
 import Dashboard from '../pages/adminSide/dashboard/Dashboard';
-import AddProduct from '../pages/adminSide/addProduct/AddProduct';
 import MainLayout from '../layouts/MainLayout';
 import HomePage from '../pages/clientSide/homePage/HomePage';
 import AboutPage from '../pages/clientSide/aboutPage/AboutPage';
 import ContactPage from '../pages/clientSide/contactPage/ContactPage';
 import GalleryPage from '../pages/clientSide/galleryPage/GalleryPage';
-import PackagePage from '../pages/clientSide/packagePage/PackagePage';
+import Packages from '../pages/clientSide/packagePage/Packages';
+import PackageDetails from '../pages/clientSide/packagePage/PackageDetails';
+import AddPackagePage from '../pages/adminSide/packageRelatedPages/AddPackagePage';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/packages",
-        element: <PackagePage></PackagePage>
+        element: <Packages></Packages>
+      },
+      {
+        path: "/package-details",
+        element: <PackageDetails></PackageDetails>
       },
       {
         path: "/about",
@@ -46,8 +51,8 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>
       },
       {
-        path: "add-product",
-        element: <AddProduct></AddProduct>
+        path: "add-package",
+        element: <AddPackagePage></AddPackagePage>
       }
       
     ]

@@ -37,7 +37,7 @@ const MobileNavbar = () => {
                     </NavLink>
                 </div>
 
-                <p className='text-black font-bold'>Dhaka Body Queen SPA</p>
+                <p className='text-[#DC2626] font-bold text-xl'>Dhaka Body Queen SPA</p>
 
                 {/* Toggle Button for Mobile Devices */}
                 <button onClick={toggleDrawer} className='text-black'>
