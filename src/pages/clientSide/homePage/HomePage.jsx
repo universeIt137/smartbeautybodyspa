@@ -9,18 +9,32 @@ import HoursOfOperation from './HoursOfOperation';
 import Testimonials from './Testimonials';
 import ContactUsSection from './ContactUsSection';
 import RelatedSearch from './RelatedSearch';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const HomePage = () => {
+
+    const axiosPublic = useAxiosPublic();
+    const { data: content = [] } = useQuery({
+        queryKey: ['content'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/homepageContent');
+            return res.data[0];
+        }
+    })
+
+    const { mainBannerUrl, bannerTitle, bannerSubTitle, bannerDescription, latestNews, youtubeVideos, aboutTitle, aboutSubTitle,bannerImageUrl, relatedSearch } = content;
+
     return (
         <div>
-            <SpaBanner></SpaBanner>
+            <SpaBanner mainBannerUrl={mainBannerUrl} bannerTitle={bannerTitle} bannerSubTitle={bannerSubTitle} bannerDescription={bannerDescription} latestNews={latestNews}></SpaBanner>
             <ServiceSection></ServiceSection>
             <div className="lg:mt-40">
-                <YoutubeSection></YoutubeSection>
+                <YoutubeSection youtubeVideos={youtubeVideos}></YoutubeSection>
             </div>
 
             <div className="lg:mt-40">
-                <AboutSection></AboutSection>
+                <AboutSection aboutTitle={aboutTitle} aboutSubTitle={aboutSubTitle} bannerImageUrl={bannerImageUrl}></AboutSection>
             </div>
 
             <div className="lg:mt-40">
@@ -45,7 +59,7 @@ const HomePage = () => {
                 <ContactUsSection></ContactUsSection>
             </div>
             <div className="lg:my-4">
-                <RelatedSearch></RelatedSearch>
+                <RelatedSearch relatedSearch={relatedSearch}></RelatedSearch>
             </div>
         </div>
     );

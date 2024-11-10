@@ -1,15 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { uploadImg } from '../../../uploadFile/uploadImg';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
+import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const AddPackagePage = () => {
+const UpdatePackagePage = () => {
     const [title, setTitle] = useState('');
     const [rating, setRating] = useState('');
     const [description, setDescription] = useState('');
     const [durations, setDurations] = useState([{ time: '', price: '' }]);
+    const [imageUrl, setImageUrl] = useState('');
     const [loading, setLoading] = useState(false);
+    const { id } = useParams();
+
     const axiosPublic = useAxiosPublic();
+    const { data: packageData = {}, isLoading } = useQuery({
+        queryKey: ['packageData', id],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/package/${id}`);
+            return res.data;
+        }
+    });
+
+    useEffect(() => {
+        if (packageData) {
+            setTitle(packageData.title || '');
+            setRating(packageData.rating || '');
+            setDescription(packageData.description || '');
+            setDurations(packageData.durations || [{ time: '', price: '' }]);
+            setImageUrl(packageData.ImageUrl || '');
+        }
+    }, [packageData]);
 
     const handleDurationChange = (index, field, value) => {
         const updatedDurations = durations.map((duration, i) =>
@@ -28,53 +50,46 @@ const AddPackagePage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);  // Start loading state
-
+        setLoading(true);
         const form = e.target;
         const image = form.image.files[0];
 
-        let ImageUrl = '';
-        if (!image?.name) {
-            ImageUrl = '';
-        } else {
+        let ImageUrl = imageUrl;
+        if (image?.name) {
             ImageUrl = await uploadImg(image);
         }
 
-        const packageData = {
+        const updatedPackageData = {
             title,
             description,
             rating,
             durations,
-            ImageUrl
+            ImageUrl,
         };
 
-        console.log('Package Data:', packageData);
-        // Submit data to the server or process it as needed
-        axiosPublic.post('/package', packageData)
+        axiosPublic.put(`/package/${id}`, updatedPackageData)
             .then(res => {
                 if (res) {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "Your package has been added",
+                        title: "Your package has been updated.",
                         showConfirmButton: false,
                         timer: 1500
                     });
+
                 }
             })
-            .catch()
-        
-
-        setLoading(false);  // End loading state
+        setLoading(false);
     };
+
+    if (isLoading) return <div>Loading...</div>;
 
     return (
         <div className="mx-auto bg-white p-6 shadow-lg rounded-lg">
-            <h2 className="text-2xl font-bold text-center mb-6">Add New Spa Package</h2>
+            <h2 className="text-2xl font-bold text-center mb-6">Update Spa Package</h2>
             <form onSubmit={handleSubmit}>
-
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                    {/* Title Input */}
                     <div className="mb-4">
                         <label className="block text-gray-700 font-semibold mb-2">Package Title</label>
                         <input
@@ -87,7 +102,6 @@ const AddPackagePage = () => {
                         />
                     </div>
 
-                    {/* Rating Input */}
                     <div className="mb-4">
                         <label className="block text-gray-700 font-semibold mb-2">Rating</label>
                         <input
@@ -98,13 +112,12 @@ const AddPackagePage = () => {
                             value={rating}
                             onChange={(e) => setRating(e.target.value)}
                             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-pink-500"
-                            placeholder="Enter package rating (e.g., 4.8)"
+                            placeholder="Enter package rating"
                             required
                         />
                     </div>
                 </div>
 
-                {/* Description  */}
                 <div className="mb-4">
                     <label className="block text-gray-700 font-semibold mb-2">Package Description</label>
                     <textarea
@@ -118,15 +131,12 @@ const AddPackagePage = () => {
                     ></textarea>
                 </div>
 
-                {/* Image Upload */}
                 <div className="p-2 w-full">
-                    <div className="relative">
-                        <label className="leading-7 text-sm text-gray-600 font-bold">Package Banner Image</label><br />
-                        <input type="file" name='image' className="file-input file-input-bordered file-input-md w-full " />
-                    </div>
+                    <label className="leading-7 text-sm text-gray-600 font-bold">Package Banner Image</label>
+                    <input type="file" name="image" className="file-input file-input-bordered file-input-md w-full" />
+                    {imageUrl && <img src={imageUrl} alt="Current" className="mt-2 h-32" />}
                 </div>
 
-                {/* Durations Section */}
                 <div className="mb-4">
                     <label className="block text-gray-700 font-semibold mb-2">Durations</label>
                     {durations.map((duration, index) => (
@@ -167,15 +177,13 @@ const AddPackagePage = () => {
                     </button>
                 </div>
 
-                {/* Submit Button */}
                 <div className="mt-6 w-1/4 mx-auto">
                     <button
                         type="submit"
                         disabled={loading}
-                        className={`px-10 py-3 rounded-lg font-semibold transition duration-300 ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-pink-500 text-white hover:bg-pink-600'
-                            }`}
+                        className="px-10 bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition duration-300"
                     >
-                        {loading ? 'Uploading...' : 'Submit'}
+                        {loading ? 'Updating...' : 'Update Package'}
                     </button>
                 </div>
             </form>
@@ -183,4 +191,4 @@ const AddPackagePage = () => {
     );
 };
 
-export default AddPackagePage;
+export default UpdatePackagePage;

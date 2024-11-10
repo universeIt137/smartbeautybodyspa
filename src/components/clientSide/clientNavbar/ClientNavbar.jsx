@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-const ClientNavbar = () => {
+const ClientNavbar = ({name, logoImageUrl}) => {
 
     const routes = [
         { path: "/", name: "Home" },
@@ -19,12 +19,12 @@ const ClientNavbar = () => {
                 {/* Logo Section */}
                 <div className="flex items-center space-x-2">
                     <img
-                        src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730869312/11.%20SPA-Center/tanxlvp3dggfnhgkftnl.png" // Replace with the path to your logo image
+                        src={logoImageUrl} // Replace with the path to your logo image
                         alt="Logo"
                         className="h-8 w-8"
                     />
                     <h1 className="text-2xl font-bold text-black custom-animated-underline">
-                       <Link to={'/'}> Glorious Thai Spa</Link>
+                        <Link to={'/'}>{name}</Link>
                     </h1>
                 </div>
 

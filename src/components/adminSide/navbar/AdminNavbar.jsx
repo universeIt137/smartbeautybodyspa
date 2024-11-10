@@ -5,8 +5,8 @@ const AdminNavbar = () => {
         <div>
             <div className="flex justify-between items-center bg-white shadow p-4">
                 
-                <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                <div className="flex items-center space-x-4 text-2xl font-bold">
+                Glorious Thai Spa Dashboard
                 </div>
             </div>
         </div>

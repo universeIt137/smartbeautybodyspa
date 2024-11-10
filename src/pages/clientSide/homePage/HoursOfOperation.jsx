@@ -1,16 +1,18 @@
 import React from 'react';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const HoursOfOperation = () => {
-    const days = [
-        "Saturday",
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-    ];
-    const hours = "10:00AM - 10:00PM";
+    
+
+    const axiosPublic = useAxiosPublic();
+    const { data: days = [] } = useQuery({
+        queryKey: ['days'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/office-hour');
+            return res.data;
+        }
+    })
 
     return (
 
@@ -23,20 +25,24 @@ const HoursOfOperation = () => {
 
 
                 {/* Header Section */}
-                <div className="bg-cover bg-center text-white font-bold text-center py-4"
+                <div className="bg-cover bg-center text-white font-bold text-center py-8"
                     style={{
                         backgroundImage: 'url("https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730893172/11.%20SPA-Center/HomePage/qfoj89kktqvchpooecav.jpg")'
                     }}
                 >
-                    Dhaka Body Queen Spa
+
                 </div>
 
                 {/* Table Section */}
                 <div className="bg-white p-4">
-                    {days.map((day, index) => (
-                        <div key={index} className="flex justify-center lg:gap-96 gap-4 lg:text-2xl items-center py-3 border-b">
-                            <span className="font-semibold text-gray-700 text-center">{day}</span>
-                            <span className="font-bold text-gray-800">{hours}</span>
+                    {days?.map((day, index) => (
+                        <div key={index} className="flex justify-between lg:gap-44  gap-4 lg:text-2xl items-center py-3 border-b">
+                            <div className='w-1/2'>
+                                <p className="font-semibold text-gray-700 text-center">{day?.day}</p>
+                            </div>
+                            <div className="w-1/2">
+                                <p className="font-bold text-gray-800 text-center">{day?.time}</p>
+                            </div>
                         </div>
                     ))}
                 </div>

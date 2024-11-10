@@ -3,7 +3,7 @@ import { BsMenuButtonWideFill } from 'react-icons/bs';
 import { GrMoney } from 'react-icons/gr';
 import { IoMdCard } from 'react-icons/io';
 import { IoCartOutline, IoCloseCircleOutline } from 'react-icons/io5';
-import { MdMenuOpen, MdOutlineCategory, MdOutlineDiscount, MdOutlineLockPerson } from 'react-icons/md';
+import { MdLogout, MdMenuOpen, MdOutlineCategory, MdOutlineDiscount, MdOutlineLockPerson } from 'react-icons/md';
 import { RiAdminLine } from 'react-icons/ri';
 import { RxDashboard } from 'react-icons/rx';
 import { NavLink } from 'react-router-dom';
@@ -18,6 +18,8 @@ import { Link } from 'react-router-dom';
 import { FaRegComments } from "react-icons/fa";
 import Dropdown from './Dropdown';
 import NavigationItem from './NavigationItem';
+import { signOut } from 'firebase/auth';
+import auth from '../../../firebase/firebase.config';
 
 const Sidebar = () => {
     window.scrollTo(0, 0);
@@ -31,8 +33,33 @@ const Sidebar = () => {
     const packageUrls =
         <>
             <NavigationItem to="/dashboard/add-package" icon={MdAddCircle} label="Add Package" />
-            <NavigationItem to="/dashboard/manageCourses" icon={SiNginxproxymanager} label="Manage Package" />
+            <NavigationItem to="/dashboard/manage-package" icon={SiNginxproxymanager} label="Manage Package" />
         </>
+
+    const bookingUrls =
+        <>
+
+            <NavigationItem to="/dashboard/manage-booking" icon={SiNginxproxymanager} label="Manage Booking" />
+        </>
+
+    const contentUrls =
+        <>
+
+            <NavigationItem to="/dashboard/manage-content" icon={SiNginxproxymanager} label="Manage Content" />
+        </>
+
+    const galleryUrls =
+        <>
+
+            <NavigationItem to="/dashboard/manage-gallery" icon={SiNginxproxymanager} label="Manage Gallery" />
+        </>
+
+    const officeUrls =
+        <>
+
+            <NavigationItem to="/dashboard/manage-office-hour" icon={SiNginxproxymanager} label="Manage Office Hours" />
+        </>
+
 
     const blogUrls =
         <>
@@ -88,7 +115,7 @@ const Sidebar = () => {
             >
                 <div className="flex justify-between items-center p-4 gap-8">
                     <div className={`text-2xl font-bold ${!isSidebarOpen && 'hidden'}`}>
-                        SPA Dashboard
+                        <Link to={'/'}>Glorious Thai Spa</Link>
                     </div>
                     <button
                         onClick={toggleSidebar}
@@ -109,6 +136,22 @@ const Sidebar = () => {
 
                         <li className="mb-4 mx-3">
                             <Dropdown buttonText="Packages" urls={packageUrls} />
+                        </li>
+
+                        <li className="mb-4 mx-3">
+                            <Dropdown buttonText="Bookings" urls={bookingUrls} />
+                        </li>
+
+                        <li className="mb-4 mx-3">
+                            <Dropdown buttonText="Website Content" urls={contentUrls} />
+                        </li>
+
+                        <li className="mb-4 mx-3">
+                            <Dropdown buttonText="Photo Gallery" urls={galleryUrls} />
+                        </li>
+
+                        <li className="mb-4 mx-3">
+                            <Dropdown buttonText="Office Hour" urls={officeUrls} />
                         </li>
 
                         <li className="mb-4">
@@ -139,10 +182,7 @@ const Sidebar = () => {
                         </li>
 
                         <li className="mb-4">
-                            <Dropdown
-                                buttonText="Student Gallary"
-                                urls={studentGallaryUrls}
-                            />
+                            <button onClick={() => signOut(auth)} className=' px-5 py-2 rounded-lg flex gap-1 items-center hover:bg-gray-200 hover:border-transparent transition-all duration-300 active:scale-90'> Log Out <MdLogout /></button>
                         </li>
                     </ul>
                 </nav>

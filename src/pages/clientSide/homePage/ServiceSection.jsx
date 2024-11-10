@@ -1,8 +1,20 @@
 import React from 'react';
 import ServiceContent from './ServiceContent';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 
 const ServiceSection = () => {
+
+    const axiosPublic = useAxiosPublic();
+    const { data: packages = [] } = useQuery({
+        queryKey: ['all packages'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/package');
+            return res.data;
+        }
+    })
+
     return (
         <div >
             {/* Title Section */}
@@ -10,24 +22,13 @@ const ServiceSection = () => {
                 <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730896027/11.%20SPA-Center/HomePage/p6qjewftqkbrnpyw4fou.png" alt="" className='mx-auto w-1/3' />
             </h2>
 
-            <ServiceContent reverse={false}></ServiceContent>
-            <ServiceContent reverse={true}></ServiceContent>
+            {
+                packages?.map((pkg, index) => (
+                    <ServiceContent key={pkg._id} pkg={pkg} reverse={index % 2 === 0}></ServiceContent>
+                ))
+            }
 
-            <ServiceContent reverse={false}></ServiceContent>
-            <ServiceContent reverse={true}></ServiceContent>
 
-            <ServiceContent reverse={false}></ServiceContent>
-            <ServiceContent reverse={true}></ServiceContent>
-
-            <ServiceContent reverse={false}></ServiceContent>
-            <ServiceContent reverse={true}></ServiceContent>
-
-            <ServiceContent reverse={false}></ServiceContent>
-            <ServiceContent reverse={true}></ServiceContent>
-
-            <ServiceContent reverse={false}></ServiceContent>
-            <ServiceContent reverse={true}></ServiceContent>
-            
         </div>
     );
 };

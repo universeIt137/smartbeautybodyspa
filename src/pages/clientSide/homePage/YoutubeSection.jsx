@@ -1,7 +1,7 @@
 import React from 'react';
 import MainVideo from '../../../components/clientSide/videoPlayer/MainVideo';
 
-const YoutubeSection = () => {
+const YoutubeSection = ({youtubeVideos}) => {
     return (
         <div>
             {/* Title Section */}
@@ -9,7 +9,7 @@ const YoutubeSection = () => {
                 <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730886419/11.%20SPA-Center/HomePage/c91co8un4daptbyl32qr.png" alt="" className='mx-auto' />
             </h2>
 
-            <MainVideo videoUrl={"https://www.youtube.com/watch?v=tg9hNriQYTE"} />
+            <MainVideo videoUrl={youtubeVideos} />
         </div>
     );
 };

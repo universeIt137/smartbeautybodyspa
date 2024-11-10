@@ -10,6 +10,16 @@ import GalleryPage from '../pages/clientSide/galleryPage/GalleryPage';
 import Packages from '../pages/clientSide/packagePage/Packages';
 import PackageDetails from '../pages/clientSide/packagePage/PackageDetails';
 import AddPackagePage from '../pages/adminSide/packageRelatedPages/AddPackagePage';
+import Login from '../pages/clientSide/credentialPages/Login';
+import PrivateRoutes from './PrivateRoutes';
+import Register from '../pages/clientSide/credentialPages/Register';
+import ManagePackagePage from '../pages/adminSide/packageRelatedPages/ManagePackagePage';
+import UpdatePackagePage from '../pages/adminSide/packageRelatedPages/UpdatePackagePage';
+import BookNowForm from '../pages/clientSide/bookNowPage/BookNowForm';
+import ManageBooking from '../pages/adminSide/bookingRelatedPages/ManageBooking';
+import HomePageContentForm from '../pages/adminSide/homepageRelatedPages/HomePageContentForm';
+import ManagePhotoGallery from '../pages/adminSide/photoGalleryRelatedPages/ManagePhotoGallery';
+import ManageOfficeHour from '../pages/adminSide/officeHourRelatedPages/ManageOfficeHour';
 
 const router = createBrowserRouter([
   {
@@ -39,12 +49,26 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <GalleryPage></GalleryPage>
+      },
+      {
+        path: "/book-now/:id",
+        element: <BookNowForm></BookNowForm>
       }
     ]
   },
   {
+    path: "/admin-login",
+    element: <Login></Login>
+  },
+  {
+    path: "/admin-register",
+    element: <Register></Register>
+  },
+  {
     path: "/dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivateRoutes>
+      <DashboardLayout></DashboardLayout>
+    </PrivateRoutes>,
     children: [
       {
         path: "/dashboard",
@@ -53,8 +77,32 @@ const router = createBrowserRouter([
       {
         path: "add-package",
         element: <AddPackagePage></AddPackagePage>
+      },
+      {
+        path: "manage-package",
+        element: <ManagePackagePage></ManagePackagePage>
+      },
+      {
+        path: "update-package/:id",
+        element: <UpdatePackagePage></UpdatePackagePage>
+      },
+      {
+        path: "manage-booking",
+        element: <ManageBooking></ManageBooking>
+      },
+      {
+        path: "manage-content",
+        element: <HomePageContentForm></HomePageContentForm>
+      },
+      {
+        path: "manage-gallery",
+        element: <ManagePhotoGallery></ManagePhotoGallery>
+      },
+      {
+        path: "manage-office-hour",
+        element: <ManageOfficeHour></ManageOfficeHour>
       }
-      
+
     ]
   }
 ]);

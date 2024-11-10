@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaThumbsUp } from 'react-icons/fa';
 
-const AboutSection = () => {
+const AboutSection = ({aboutTitle, aboutSubTitle, bannerImageUrl}) => {
     return (
         <div>
             {/* Title Section */}
@@ -13,7 +13,7 @@ const AboutSection = () => {
                 {/* Image Section */}
                 <div className="w-full lg:w-1/2 flex  lg:justify-start mx-auto">
                     <img
-                        src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730890296/11.%20SPA-Center/HomePage/xnbxedcnnh8iig1av3fk.jpg" // Replace with actual image URL
+                        src={bannerImageUrl} // Replace with actual image URL
                         alt="Spa Relaxation"
                         className="rounded-xl object-cover w-full lg:w-[450px] h-auto"
                     />
@@ -22,10 +22,10 @@ const AboutSection = () => {
                 {/* Text Section */}
                 <div className="w-full lg:w-1/2 text-center lg:text-left">
                     <h2 className="text-2xl lg:text-5xl font-bold text-black">
-                        We Are Best Spa Center For Your Relaxation
+                        {aboutTitle}
                     </h2>
                     <p className="text-gray-700 mt-4">
-                        Are you looking for spa massage near me? Massage in Dhaka? Body massage in Dhaka for men? Best body massage in Dhaka? DhakaBodyQueenSpa.com brings ultimate relaxation at your doorstep.
+                        {aboutSubTitle}
                     </p>
 
                     {/* Features Section */}

@@ -1,91 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
-const packages = [
-    {
-        id: 1,
-        title: "Dry Massage",
-        rating: 5.0,
-        durations: [
-            { time: "60 Minutes", price: "4000 TK" },
-            { time: "90 Minutes", price: "5000 TK" },
-            { time: "120 Minutes", price: "7000 TK" },
-        ],
-        image: "https://www.dhakabodyqueenspa.com/wp-content/uploads/2022/09/foot-massage.jpg" // Replace with actual image URL
-    },
-    {
-        id: 2,
-        title: "Hot Stone Massage",
-        rating: 4.8,
-        durations: [
-            { time: "60 Minutes", price: "4500 TK" },
-            { time: "90 Minutes", price: "5500 TK" },
-            { time: "120 Minutes", price: "7500 TK" },
-        ],
-        image: "https://www.dhakabodyqueenspa.com/wp-content/uploads/2022/09/full_body.jpg" // Replace with actual image URL
-    },
-    {
-        id: 3,
-        title: "Aromatherapy Massage",
-        rating: 4.9,
-        durations: [
-            { time: "60 Minutes", price: "5000 TK" },
-            { time: "90 Minutes", price: "6000 TK" },
-            { time: "120 Minutes", price: "8000 TK" },
-        ],
-        image: "https://www.dhakabodyqueenspa.com/wp-content/uploads/2022/08/photo-1540555700478-4be289fbecef.jpg" // Replace with actual image URL
-    },
-    {
-        id: 4,
-        title: "Foot Reflexology",
-        rating: 5.0,
-        durations: [
-            { time: "30 Minutes", price: "2000 TK" },
-            { time: "60 Minutes", price: "3500 TK" },
-        ],
-        image: "https://www.dhakabodyqueenspa.com/wp-content/uploads/2022/09/nurumassage.jpg" // Replace with actual image URL
-    },
 
-    {
-        id: 2,
-        title: "Hot Stone Massage",
-        rating: 4.8,
-        durations: [
-            { time: "60 Minutes", price: "4500 TK" },
-            { time: "90 Minutes", price: "5500 TK" },
-            { time: "120 Minutes", price: "7500 TK" },
-        ],
-        image: "https://www.dhakabodyqueenspa.com/wp-content/uploads/2022/09/full_body.jpg" // Replace with actual image URL
-    },
-    {
-        id: 3,
-        title: "Aromatherapy Massage",
-        rating: 4.9,
-        durations: [
-            { time: "60 Minutes", price: "5000 TK" },
-            { time: "90 Minutes", price: "6000 TK" },
-            { time: "120 Minutes", price: "8000 TK" },
-        ],
-        image: "https://www.dhakabodyqueenspa.com/wp-content/uploads/2022/08/photo-1540555700478-4be289fbecef.jpg" // Replace with actual image URL
-    },
-    {
-        id: 4,
-        title: "Foot Reflexology",
-        rating: 5.0,
-        durations: [
-            { time: "30 Minutes", price: "2000 TK" },
-            { time: "60 Minutes", price: "3500 TK" },
-        ],
-        image: "https://www.dhakabodyqueenspa.com/wp-content/uploads/2022/09/nurumassage.jpg" // Replace with actual image URL
-    },
-    // Add more packages as needed
-];
 
 const PackageCard = ({ pkg }) => {
     return (
         <div className="max-w-sm   rounded overflow-hidden shadow-lg flex flex-col justify-between border">
             <div className="h-20 lg:h-40 w-full overflow-hidden">
-                <img className="w-full h-full object-cover" src={pkg.image} alt={pkg.title} />
+                <img className="w-full h-full bg-cover" src={pkg.ImageUrl} alt={pkg.title} />
             </div>
             <div className="px-2 lg:px-6 py-4">
                 <div className="font-bold lg:text-xl lg:mb-2">{pkg.title}</div>
@@ -128,6 +52,16 @@ const PackageCard = ({ pkg }) => {
 
 
 const Packages = () => {
+
+    const axiosPublic = useAxiosPublic();
+
+    const { data: packages = [] } = useQuery({
+        queryKey: ['all packages'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('package');
+            return res.data;
+        }
+    })
     return (
         <div className="min-h-screen bg-gray-100 py-10">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Our Packages</h2>
