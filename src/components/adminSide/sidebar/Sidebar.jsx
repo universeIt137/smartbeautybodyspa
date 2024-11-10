@@ -59,6 +59,12 @@ const Sidebar = () => {
 
             <NavigationItem to="/dashboard/manage-office-hour" icon={SiNginxproxymanager} label="Manage Office Hours" />
         </>
+    
+    const testimonialsUrls =
+        <>
+
+            <NavigationItem to="/dashboard/manage-testimonial" icon={SiNginxproxymanager} label="Manage Testimonial" />
+        </>
 
 
     const blogUrls =
@@ -152,6 +158,10 @@ const Sidebar = () => {
 
                         <li className="mb-4 mx-3">
                             <Dropdown buttonText="Office Hour" urls={officeUrls} />
+                        </li>
+
+                        <li className="mb-4 mx-3">
+                            <Dropdown buttonText="Testimonial" urls={testimonialsUrls} />
                         </li>
 
                         <li className="mb-4">

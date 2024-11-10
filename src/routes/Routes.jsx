@@ -20,6 +20,7 @@ import ManageBooking from '../pages/adminSide/bookingRelatedPages/ManageBooking'
 import HomePageContentForm from '../pages/adminSide/homepageRelatedPages/HomePageContentForm';
 import ManagePhotoGallery from '../pages/adminSide/photoGalleryRelatedPages/ManagePhotoGallery';
 import ManageOfficeHour from '../pages/adminSide/officeHourRelatedPages/ManageOfficeHour';
+import ManageTestimonial from '../pages/adminSide/testimonialRelatedPages/ManageTestimonial';
 
 const router = createBrowserRouter([
   {
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
       {
         path: "manage-office-hour",
         element: <ManageOfficeHour></ManageOfficeHour>
+      },
+      {
+        path: "manage-testimonial",
+        element: <ManageTestimonial></ManageTestimonial>
       }
 
     ]
