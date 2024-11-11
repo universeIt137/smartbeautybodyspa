@@ -12,7 +12,7 @@ const DashboardLayout = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex  bg-gray-50">
       {/* Sidebar */}
       <Sidebar></Sidebar>
 

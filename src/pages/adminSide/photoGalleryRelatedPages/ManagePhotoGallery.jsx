@@ -96,7 +96,7 @@ const ManagePhotoGallery = () => {
     return (
         <>
             <Helmet>
-                <title>Dashboard | Manage Student Gallery</title>
+                <title>Dashboard | Manage Photo Gallery</title>
             </Helmet>
             <div className="bg-white p-5 mx-4 rounded-lg">
                 <p className='text-2xl font-bold text-center'>Manage Photo Gallery</p>

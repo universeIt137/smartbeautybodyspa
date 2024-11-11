@@ -164,34 +164,10 @@ const Sidebar = () => {
                             <Dropdown buttonText="Testimonial" urls={testimonialsUrls} />
                         </li>
 
-                        <li className="mb-4">
-                            <Dropdown buttonText="Seminar" urls={seminarUrls} />
-                        </li>
+                        
+                        
 
-                        <li className="mb-4">
-                            <Dropdown buttonText="All Requests" urls={requestUrls} />
-                        </li>
-
-                        <li className="mb-4">
-                            <Dropdown buttonText="Blogs" urls={blogUrls} />
-                        </li>
-                        <li className="mb-4">
-                            <Dropdown buttonText="Comments" urls={comments} />
-                        </li>
-
-                        <li className="mb-4">
-                            <Dropdown buttonText="HomePage content" urls={homepageUrls} />
-                        </li>
-
-                        <li className="mb-4">
-                            <Dropdown buttonText="Faculty" urls={facultyUrls} />
-                        </li>
-
-                        <li className="mb-4">
-                            <Dropdown buttonText="Testimonial" urls={testimonialUrls} />
-                        </li>
-
-                        <li className="mb-4">
+                        <li className="mb-4 mx-3">
                             <button onClick={() => signOut(auth)} className=' px-5 py-2 rounded-lg flex gap-1 items-center hover:bg-gray-200 hover:border-transparent transition-all duration-300 active:scale-90'> Log Out <MdLogout /></button>
                         </li>
                     </ul>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const ManageBooking = () => {
     const axiosPublic = useAxiosPublic();
@@ -81,6 +82,9 @@ const ManageBooking = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Dashboard | Manage Booking</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white border border-gray-200 shadow-md">
                     <thead>

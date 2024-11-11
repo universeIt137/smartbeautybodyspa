@@ -3,6 +3,7 @@ import { uploadImg } from "../../../uploadFile/uploadImg";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const HomePageContentForm = () => {
     const axiosPublic = useAxiosPublic();
@@ -110,6 +111,9 @@ const HomePageContentForm = () => {
 
     return (
         <div className="w-10/12 mx-auto p-4">
+            <Helmet>
+                <title>Dashboard | Manage Content</title>
+            </Helmet>
             <h2 className="text-2xl font-semibold mb-4">Upload Home Page Content</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 {loading && <p className="text-blue-500">Uploading data...</p>}

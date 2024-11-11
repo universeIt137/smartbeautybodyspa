@@ -1,99 +1,21 @@
 import React, { useRef, useEffect } from 'react';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
-const testimonials = [
-    {
-        id: 1,
-        name: "Jibon Chowdhuri",
-        role: "Customer",
-        rating: 5.0,
-        image: "https://via.placeholder.com/50", // Replace with actual image URL
-        text: "Me and my classmates definitely enjoyed their time/massage here. The therapists are very professional, friendly staff."
-    },
-    {
-        id: 2,
-        name: "Kelly Kimed",
-        role: "Customer",
-        rating: 5.0,
-        image: "https://via.placeholder.com/50", // Replace with actual image URL
-        text: "I've been here a couple of times mainly for deep tissue massage. I've had it with different people and they were all great. I've always felt really relaxed after that."
-    },
-    {
-        id: 3,
-        name: "Khaliur Rahman",
-        role: "Customer",
-        rating: 5.0,
-        image: "https://via.placeholder.com/50", // Replace with actual image URL
-        text: "I personally love the receptionist. She is kind and taught my friends some easy massages to do at home. Excellent hospitality. The place is clean and cozy. Highly recommended. We will come back again for sure."
-    },
-    {
-        id: 2,
-        name: "Kelly Kimed",
-        role: "Customer",
-        rating: 5.0,
-        image: "https://via.placeholder.com/50", // Replace with actual image URL
-        text: "I've been here a couple of times mainly for deep tissue massage. I've had it with different people and they were all great. I've always felt really relaxed after that."
-    },
-    {
-        id: 3,
-        name: "Khaliur Rahman",
-        role: "Customer",
-        rating: 5.0,
-        image: "https://via.placeholder.com/50", // Replace with actual image URL
-        text: "I personally love the receptionist. She is kind and taught my friends some easy massages to do at home. Excellent hospitality. The place is clean and cozy. Highly recommended. We will come back again for sure."
-    },
-    {
-        id: 2,
-        name: "Kelly Kimed",
-        role: "Customer",
-        rating: 5.0,
-        image: "https://via.placeholder.com/50", // Replace with actual image URL
-        text: "I've been here a couple of times mainly for deep tissue massage. I've had it with different people and they were all great. I've always felt really relaxed after that."
-    },
-    {
-        id: 3,
-        name: "Khaliur Rahman",
-        role: "Customer",
-        rating: 5.0,
-        image: "https://via.placeholder.com/50", // Replace with actual image URL
-        text: "I personally love the receptionist. She is kind and taught my friends some easy massages to do at home. Excellent hospitality. The place is clean and cozy. Highly recommended. We will come back again for sure."
-    },
-    {
-        id: 2,
-        name: "Kelly Kimed",
-        role: "Customer",
-        rating: 5.0,
-        image: "https://via.placeholder.com/50", // Replace with actual image URL
-        text: "I've been here a couple of times mainly for deep tissue massage. I've had it with different people and they were all great. I've always felt really relaxed after that."
-    },
-    {
-        id: 3,
-        name: "Khaliur Rahman",
-        role: "Customer",
-        rating: 5.0,
-        image: "https://via.placeholder.com/50", // Replace with actual image URL
-        text: "I personally love the receptionist. She is kind and taught my friends some easy massages to do at home. Excellent hospitality. The place is clean and cozy. Highly recommended. We will come back again for sure."
-    },
-];
+
 
 const TestimonialCard = ({ testimonial }) => {
     return (
         <div className="bg-white shadow-lg rounded-lg p-6 min-w-[300px] mx-2">
-            <p className="text-gray-700 mb-4">{testimonial.text}</p>
+            <p className="text-gray-700 mb-4">{testimonial?.testimonial}</p>
             <div className="flex items-center">
                 <img
                     className="w-12 h-12 rounded-full mr-4"
-                    src={testimonial.image}
-                    alt={`${testimonial.name}`}
+                    src={testimonial?.photo}
+                    
                 />
                 <div>
-                    <p className="text-gray-900 font-bold">{testimonial.name}</p>
-                    <p className="text-gray-500 text-sm">{testimonial.role}</p>
-                    <div className="flex items-center text-yellow-500 mt-1">
-                        {Array.from({ length: Math.floor(testimonial.rating) }, (_, i) => (
-                            <span key={i}>⭐</span>
-                        ))}
-                        <span className="ml-2 text-gray-500">({testimonial.rating})</span>
-                    </div>
+                    <p className="text-gray-900 font-bold">{testimonial?.name}</p>                    
                 </div>
             </div>
         </div>
@@ -106,6 +28,15 @@ const Testimonials = () => {
     let startX;
     let scrollLeft;
     let autoScrollInterval;
+
+    const axiosPublic = useAxiosPublic();
+    const { data: testimonials = [] } = useQuery({
+        queryKey: ['testimonials'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/testimonial');
+            return res.data;
+        }
+    })
 
     const handleMouseDown = (e) => {
         isDragging = true;
@@ -166,7 +97,7 @@ const Testimonials = () => {
             
             <div className="flex flex-nowrap items-center" style={{ gap: '16px' }}>
                 {testimonials.map((testimonial) => (
-                    <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+                    <TestimonialCard key={testimonial._id} testimonial={testimonial} />
                 ))}
             </div>
         </div>

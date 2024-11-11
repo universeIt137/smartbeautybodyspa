@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { uploadImg } from '../../../uploadFile/uploadImg';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const AddPackagePage = () => {
     const [title, setTitle] = useState('');
@@ -70,6 +71,9 @@ const AddPackagePage = () => {
 
     return (
         <div className="mx-auto bg-white p-6 shadow-lg rounded-lg">
+            <Helmet>
+                <title>Dashboard | Add Package</title>
+            </Helmet>
             <h2 className="text-2xl font-bold text-center mb-6">Add New Spa Package</h2>
             <form onSubmit={handleSubmit}>
 

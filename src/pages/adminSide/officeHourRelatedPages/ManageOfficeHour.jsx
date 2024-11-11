@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const ManageOfficeHour = () => {
     const [loading, setLoading] = useState(false);
@@ -79,6 +80,9 @@ const ManageOfficeHour = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Dashboard | Manage Office Hour</title>
+            </Helmet>
             <p className="text-2xl font-bold text-center">Add Office Hour</p>
             <form onSubmit={handleSubmit} className="space-y-4">
                
