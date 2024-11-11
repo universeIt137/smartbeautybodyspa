@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const BookNowForm = ({ packageTitle, packageId }) => {
+    window.scrollTo(0, 0);
 
     const { id } = useParams();
     const axiosPublic = useAxiosPublic();

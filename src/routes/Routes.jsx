@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         element: <Packages></Packages>
       },
       {
-        path: "/package-details",
+        path: "/package-details/:id",
         element: <PackageDetails></PackageDetails>
       },
       {

@@ -36,14 +36,16 @@ const PackageCard = ({ pkg }) => {
             <div className="lg:px-6 px-2 space-y-2 lg:pt-4 lg:pb-10 pb-2 lg:flex gap-4">
 
                 <button className="mt-auto bg-pink-500 text-white py-2 px-4 rounded-lg w-full">
-                    <Link to={'/package-details'}>
+                    <Link to={`/package-details/${pkg?._id}`}>
                         See Details
                     </Link>
                 </button>
 
 
                 <button className="mt-auto bg-pink-500 text-white py-2 px-4 rounded-lg w-full">
-                    Book Now
+                    <Link to={`/book-now/${pkg._id}`}>
+                        Book Now
+                    </Link>
                 </button>
             </div>
         </div>
