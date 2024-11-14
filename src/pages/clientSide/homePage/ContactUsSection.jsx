@@ -1,7 +1,19 @@
 import React from 'react';
 import { FaEnvelope, FaFacebook, FaMapMarkerAlt, FaPhoneAlt, FaTwitter, FaYoutube } from 'react-icons/fa';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const ContactUsSection = () => {
+    const axiosPublic = useAxiosPublic();
+    const { data: content = [] } = useQuery({
+        queryKey: ['content'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/homepageContent');
+            return res.data[0];
+        }
+    })
+
+    const { phone, address, email } = content;
     return (
         <div className='lg:mb-16'>
             <h2 className="text-4xl font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 text-center">
@@ -24,17 +36,17 @@ const ContactUsSection = () => {
                         <div className="flex items-center space-x-2 gap-2">
                             {/* <FaPhoneAlt className="text-blue-500" /> */}
                             <FaPhoneAlt className="text-blue-500" />
-                            <span>Phone <br /> 01988650873</span>
+                            <span>Phone <br /> { phone }</span>
                         </div>
                         {/* Location */}
                         <div className="flex items-center space-x-2 gap-2">
                             <FaMapMarkerAlt className="text-blue-500" />
-                            <span>Location <br /> House #45, Concord Dream Apartments, Rd No 18, <br /> Dhaka 1213</span>
+                            <span>Location <br /> { address }</span>
                         </div>
                         {/* Email */}
                         <div className="flex items-center space-x-2 gap-2">
                             <FaEnvelope className="text-blue-500" />
-                            <span>E-Mail <br /> spabd6015@gmail.com</span>
+                            <span>E-Mail <br /> { email }</span>
                         </div>
                     </div>
 

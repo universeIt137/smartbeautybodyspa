@@ -3,7 +3,7 @@ const axiosPublic = axios.create({
 
     // baseURL: 'http://localhost:5000'
 
-    baseURL: 'https://glorious-thai-spa-server.vercel.app'
+    baseURL: 'https://smart-beauty-body-spa-server.vercel.app'
 })
 
 const useAxiosPublic = () => {

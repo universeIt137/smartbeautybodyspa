@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBI0nMvhCSKMIpr7kzX0CcENm0nGPEZ1AM",
-    authDomain: "gloriousthaispa.firebaseapp.com",
-    projectId: "gloriousthaispa",
-    storageBucket: "gloriousthaispa.firebasestorage.app",
-    messagingSenderId: "973338967952",
-    appId: "1:973338967952:web:5ef6df2907759404bc3d15"
+    apiKey: "AIzaSyAKORSmB0LXKjIhv4Ta5yOB7bsB2gzuCts",
+    authDomain: "smartbeautybodyspa.firebaseapp.com",
+    projectId: "smartbeautybodyspa",
+    storageBucket: "smartbeautybodyspa.firebasestorage.app",
+    messagingSenderId: "1026264080593",
+    appId: "1:1026264080593:web:2466842bbe5598890425f0"
 };
 
 // Initialize Firebase

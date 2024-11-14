@@ -4,8 +4,20 @@ import { AiFillStar } from 'react-icons/ai';
 import { MdOutlinePhoneInTalk } from 'react-icons/md';
 import { FcApproval } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const ServiceContent = ({ pkg, reverse }) => {
+    const axiosPublic = useAxiosPublic();
+    const { data: content = [] } = useQuery({
+        queryKey: ['content'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/homepageContent');
+            return res.data[0];
+        }
+    })
+
+    const { whatsapp } = content;
     return (
         <div>
             {/* Service Content Section */}
@@ -68,12 +80,12 @@ const ServiceContent = ({ pkg, reverse }) => {
 
                         <button className="mt-6 flex items-center gap-2 px-6 py-3 bg-pink-500 text-white font-bold rounded-xl shadow-md hover:bg-pink-600 transition duration-300">
                             <a
-                                href="https://wa.me/+8801988650873"
+                                href={`https://wa.me/+88${whatsapp}`}
                                 className="text-white flex items-center gap-2"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <MdOutlinePhoneInTalk /> Call Now
+                                <MdOutlinePhoneInTalk /> WhatsApp
                             </a>
 
                         </button>

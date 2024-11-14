@@ -56,6 +56,10 @@ const HomePageContentForm = () => {
         const aboutTitle = form.aboutTitle.value;
         const aboutSubTitle = form.aboutSubTitle.value;
         const relatedSearch = form.relatedSearch.value;
+        const phone = form.phone.value;
+        const whatsapp = form.whatsapp.value;
+        const email = form.email.value;
+        const address = form.address.value;
 
 
         let mainBannerUrl = ''
@@ -86,7 +90,7 @@ const HomePageContentForm = () => {
 
         // Simulate form submission
         try {
-            const data = { name, bannerTitle, bannerSubTitle, mainBannerUrl, bannerDescription, latestNews, youtubeVideos, logoImageUrl, bannerImageUrl, aboutTitle, aboutSubTitle, relatedSearch }
+            const data = { name, bannerTitle, bannerSubTitle, mainBannerUrl, bannerDescription, latestNews, youtubeVideos, logoImageUrl, bannerImageUrl, aboutTitle, aboutSubTitle, relatedSearch, phone, whatsapp, email, address }
             // You would typically send the data to the server here
             axiosPublic.post(`/homepageContent/${content?._id || 'notAvailable'}`, data)
                 .then(res => {
@@ -215,6 +219,29 @@ const HomePageContentForm = () => {
                     <div>
                         <label htmlFor="">Related Search</label>
                         <textarea name="relatedSearch" defaultValue={content?.relatedSearch} className="w-full px-4 py-2 border rounded-md" />
+                    </div>
+
+                    <div>
+                        <label htmlFor="">Phone Number</label>
+                        <input type="text" name="phone" defaultValue={content?.phone} className="w-full px-4 py-2 border rounded-md" />
+
+                    </div>
+
+                    <div>
+                        <label htmlFor="">WhatsApp Number</label>
+                        <input type="text" name="whatsapp" defaultValue={content?.whatsapp} className="w-full px-4 py-2 border rounded-md" />
+
+                    </div>
+
+                    <div>
+                        <label htmlFor="">Email</label>
+                        <input type="email" name="email" defaultValue={content?.email} className="w-full px-4 py-2 border rounded-md" />
+
+                    </div>
+                    <div>
+                        <label htmlFor="">Address</label>
+                        <input type="text" name="address" defaultValue={content?.address} className="w-full px-4 py-2 border rounded-md" />
+
                     </div>
                 </div>
 

@@ -18,7 +18,7 @@ const MainLayout = () => {
         }
     })
 
-    const {logoImageUrl, name} = content;
+    const {logoImageUrl, name, whatsapp, phone} = content;
 
     return (
         <div>
@@ -30,8 +30,8 @@ const MainLayout = () => {
 
             
             <Outlet></Outlet>
-            <Footer></Footer>
-            <FloatingBtn></FloatingBtn>
+            <Footer name={name}></Footer>
+            <FloatingBtn whatsapp={whatsapp} phone={phone}></FloatingBtn>
         </div>
     );
 };

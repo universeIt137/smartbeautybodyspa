@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({name}) => {
     return (
         <div className='bg-[#FF0000]'>
-            <p className='text-xs lg:text-xl text-white text-center font-bold'>Copyright © 2022 Dhaka Body Queen Spa | Powered by Dhakabodyqueenspa.com</p>
+            <p className='text-xs lg:text-xl text-white text-center font-bold'>Copyright © 2022 { name } | Powered by {name}.com</p>
         </div>
     );
 };

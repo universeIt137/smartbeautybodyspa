@@ -69,7 +69,7 @@ const Testimonials = () => {
                     scrollRef.current.scrollLeft = 0;
                 }
             }
-        }, 40); // Adjust the interval for scroll speed
+        }, 80); // Adjust the interval for scroll speed
     };
 
     useEffect(() => {
