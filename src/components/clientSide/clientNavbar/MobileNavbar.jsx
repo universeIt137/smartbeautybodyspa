@@ -17,7 +17,7 @@ const MobileNavbar = ({name}) => {
 
     const routes = [
         { path: "/", name: "Home" },
-        { path: "/services", name: "Services" },
+        { path: "/packages", name: "Packages" },
         { path: "/about", name: "About" },
         { path: "/contact", name: "Contact" },
         { path: "/gallery", name: "Gallery" }
@@ -72,7 +72,7 @@ const MobileNavbar = ({name}) => {
                             ))}
                             
                             {/* Additional dropdown for Gallery */}
-                            <li>
+                            {/* <li>
                                 <button onClick={toggleGalleryDropdown} className='w-full text-left text-lg font-medium text-gray-100 hover:bg-green-600 hover:text-white px-4 py-2 rounded-md'>
                                     Gallery
                                 </button>
@@ -106,7 +106,7 @@ const MobileNavbar = ({name}) => {
                                         </li>
                                     </ul>
                                 )}
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
