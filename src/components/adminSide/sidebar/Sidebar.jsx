@@ -117,6 +117,12 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/manage-banner" icon={SiNginxproxymanager} label="Manage Banner" />
         </>
 
+    const sliderPackagesUrl =
+        <>
+            <NavigationItem to="/dashboard/upload-packages-slider" icon={MdAddCircle} label="Upload Packages Slider" />
+            <NavigationItem to="/dashboard/manage-packages-slider" icon={MdAddCircle} label="Manage Packages Slider" />
+        </>
+
 
     return (
         <>
@@ -147,6 +153,10 @@ const Sidebar = () => {
                         />
                         <li className="mb-4 mx-3">
                             <Dropdown buttonText="Banner" urls={bannerUrls} />
+                        </li>
+
+                        <li className="mb-4 mx-3">
+                            <Dropdown buttonText="Packages Slider" urls={sliderPackagesUrl} />
                         </li>
 
                         <li className="mb-4 mx-3">
