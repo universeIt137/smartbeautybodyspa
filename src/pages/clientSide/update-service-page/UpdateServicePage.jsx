@@ -67,7 +67,7 @@ import { useQuery } from "@tanstack/react-query";
 //     },
 // ];
 
-const ServicePage = () => {
+const UpdateServicePage = () => {
 
     const axiosPublic = useAxiosPublic();
 
@@ -75,11 +75,11 @@ const ServicePage = () => {
     const { data: massages = [], isLoading, isError } = useQuery({
         queryKey: ["massages"],
         queryFn: async () => {
-            const res = await axiosPublic.get("package");
+            const res = await axiosPublic.get("/package");
             return res.data;
         },
     });
-    
+
     return (
         <div className="w-11/12 mx-auto">
             {/* Header Section */}
@@ -107,7 +107,7 @@ const ServicePage = () => {
 
             {/* Services Section */}
             <div className="flex justify-center mb-4 items-center gap-6 flex-wrap">
-                {massages.map((massage, index) => (
+                {massages?.map((massage, index) => (
                     <div
                         key={index}
                         className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 max-w-xs"
@@ -151,7 +151,7 @@ const ServicePage = () => {
 
                             {/* Call Button */}
                             <button className="w-full py-2 mt-4  text-white rounded-md transition flex items-center justify-center gap-2">
-                                <FaPhoneAlt /> <ButtonAnimation></ButtonAnimation>
+                                <ButtonAnimation id={massage?._id}  ></ButtonAnimation>
                             </button>
                         </div>
                     </div>
@@ -161,4 +161,4 @@ const ServicePage = () => {
     );
 };
 
-export default ServicePage;
+export default UpdateServicePage;

@@ -1,15 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ButtonAnimation = () => {
+const ButtonAnimation = ({id}) => {
+
     return (
-        <a
+        <Link to={`/package-details/${id}`}
             href="#"
             className="relative inline-block px-8 py-4 text-black font-bold text-sm uppercase overflow-hidden tracking-widest transition-all duration-500 hover:bg-[#03e9f4] hover:text-white hover:rounded-md"
             style={{
                 boxShadow: "0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4",
             }}
         >
-            CALL NOW
+            Details
             <span
                 className="absolute block top-0 left-[-100%] w-full h-[2px] bg-gradient-to-r from-transparent to-[#03e9f4] animate-[btn-anim1_1s_linear_infinite]"
                 style={{
@@ -37,7 +39,7 @@ const ButtonAnimation = () => {
                     animationDelay: "0.75s",
                 }}
             ></span>
-        </a>
+        </Link>
     );
 };
 

@@ -54,8 +54,8 @@ const PhotoGallery = () => {
         <div className="">
 
             <div className="py-4">
-                <h2 className="text-4xl mb-5 font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 text-center">
-                    <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730892795/11.%20SPA-Center/HomePage/qv9h3t2xuk70vmi9x786.png" alt="" className='mx-auto' />
+                <h2  className="text-4xl text-center font-bold text-pink-500 mb-4">
+                    Our <span className="text-blue-500">Gallery!</span>
                 </h2>
             </div>
 

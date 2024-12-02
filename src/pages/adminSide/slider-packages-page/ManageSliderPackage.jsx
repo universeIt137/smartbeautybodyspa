@@ -22,6 +22,8 @@ const ManageSliderPackage = () => {
       return res.data;
     },
   });
+  window.scrollTo(0, 0);
+
 
   const handleDelete = (id) => {
     console.log(id)

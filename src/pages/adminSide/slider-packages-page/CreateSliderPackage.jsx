@@ -5,6 +5,8 @@ import { uploadImg } from "../../../uploadFile/uploadImg";
 import Swal from "sweetalert2";
 
 const CreateSliderPackage = () => {
+  window.scrollTo(0, 0);
+
   const axiosPublic = useAxiosPublic();
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);

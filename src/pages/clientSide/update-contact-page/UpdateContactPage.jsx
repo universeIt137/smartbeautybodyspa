@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactUpdate = () => {
+const UpdateContactPage = () => {
     return (
         <div>
             <div className="flex flex-col items-center justify-center bg-white my-4">
@@ -89,4 +89,4 @@ const ContactUpdate = () => {
     );
 };
 
-export default ContactUpdate;
+export default UpdateContactPage;

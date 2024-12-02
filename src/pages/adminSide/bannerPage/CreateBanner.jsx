@@ -63,6 +63,8 @@ const CreateBanner = () => {
                 setLoading(false); // Stop loader
             });
     };
+    window.scrollTo(0, 0);
+
 
     return (
         <div>

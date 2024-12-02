@@ -16,6 +16,8 @@ const UpdateSliderPackage = () => {
         },
     });
     const { image: upcommigUrl } = singlePackageSlider
+    window.scrollTo(0, 0);
+
 
     const axiosPublic = useAxiosPublic();
     const [loading, setLoading] = useState(false);

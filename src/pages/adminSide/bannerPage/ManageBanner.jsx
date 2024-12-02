@@ -6,6 +6,8 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const ManageBanner = () => {
+    window.scrollTo(0, 0);
+
     const axiosPublic = useAxiosPublic();
 
     // Fetch banners using React Query
