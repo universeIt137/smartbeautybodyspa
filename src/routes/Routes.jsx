@@ -32,6 +32,7 @@ import UpdateSliderPackage from '../pages/adminSide/slider-packages-page/UpdateS
 import UpdateServicePage from '../pages/clientSide/update-service-page/UpdateServicePage';
 import UpdateAboutPage from '../pages/clientSide/update-about-page/UpdateAboutPage';
 import UpdateContactPage from '../pages/clientSide/update-contact-page/UpdateContactPage';
+import ManageContact from '../pages/adminSide/contact-page/ManageContact';
 
 const router = createBrowserRouter([
   // {
@@ -145,6 +146,11 @@ const router = createBrowserRouter([
       {
         path : "update/:id",
         element : <UpdateSliderPackage></UpdateSliderPackage>
+      },
+      // contact related routes
+      {
+        path : "contact-list",
+        element : <ManageContact></ManageContact>
       }
     ]
   },

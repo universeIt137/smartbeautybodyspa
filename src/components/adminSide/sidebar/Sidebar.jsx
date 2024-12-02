@@ -123,6 +123,11 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/manage-packages-slider" icon={MdAddCircle} label="Manage Packages Slider" />
         </>
 
+const contact =
+<>
+    <NavigationItem to="/dashboard/contact-list" icon={MdAddCircle} label="Contact list" />
+</>
+
 
     return (
         <>
@@ -181,6 +186,10 @@ const Sidebar = () => {
 
                         <li className="mb-4 mx-3">
                             <Dropdown buttonText="Testimonial" urls={testimonialsUrls} />
+                        </li>
+
+                        <li className="mb-4 mx-3">
+                            <Dropdown buttonText="Contact" urls={contact} />
                         </li>
 
 
