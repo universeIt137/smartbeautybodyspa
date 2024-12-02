@@ -21,6 +21,8 @@ import HomePageContentForm from '../pages/adminSide/homepageRelatedPages/HomePag
 import ManagePhotoGallery from '../pages/adminSide/photoGalleryRelatedPages/ManagePhotoGallery';
 import ManageOfficeHour from '../pages/adminSide/officeHourRelatedPages/ManageOfficeHour';
 import ManageTestimonial from '../pages/adminSide/testimonialRelatedPages/ManageTestimonial';
+import UpdateMainLayout from '../updateMainLayout/UpdateMainLayout';
+import UpdateHomePage from '../pages/clientSide/update-home-page/UpdateHomePage';
 
 const router = createBrowserRouter([
   {
@@ -108,6 +110,16 @@ const router = createBrowserRouter([
         element: <ManageTestimonial></ManageTestimonial>
       }
 
+    ]
+  },
+  {
+    path : "/update",
+    element : <UpdateMainLayout></UpdateMainLayout>,
+    children : [
+      {
+        path : "",
+        element : <UpdateHomePage></UpdateHomePage>
+      }
     ]
   }
 ]);
