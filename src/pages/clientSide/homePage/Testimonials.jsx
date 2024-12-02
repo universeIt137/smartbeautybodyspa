@@ -12,10 +12,10 @@ const TestimonialCard = ({ testimonial }) => {
                 <img
                     className="w-12 h-12 rounded-full mr-4"
                     src={testimonial?.photo}
-                    
+
                 />
                 <div>
-                    <p className="text-gray-900 font-bold">{testimonial?.name}</p>                    
+                    <p className="text-gray-900 font-bold">{testimonial?.name}</p>
                 </div>
             </div>
         </div>
@@ -80,29 +80,28 @@ const Testimonials = () => {
 
     return (
         <>
-        <h2 className="text-4xl font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 text-center">
-                <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730894381/11.%20SPA-Center/HomePage/a1pubuieou7mmkdmbro6.png" alt="" className='mx-auto' />
-            </h2>
-
+        <h2 className="text-4xl text-center font-bold text-pink-500 mb-4">
+                        Our Client <span className="text-blue-500">Review!</span>
+                    </h2>
             <div
-            className="overflow-x-auto w-10/12 mx-auto p-6 cursor-grab"
-            ref={scrollRef}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUpOrLeave}
-            onMouseLeave={handleMouseUpOrLeave}
-            style={{ scrollbarWidth: 'none' }}
-        >
+                className="overflow-x-auto w-10/12 mx-auto p-6 cursor-grab"
+                ref={scrollRef}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUpOrLeave}
+                onMouseLeave={handleMouseUpOrLeave}
+                style={{ scrollbarWidth: 'none' }}
+            >
 
-            
-            <div className="flex flex-nowrap items-center" style={{ gap: '16px' }}>
-                {testimonials.map((testimonial) => (
-                    <TestimonialCard key={testimonial._id} testimonial={testimonial} />
-                ))}
+
+                <div className="flex flex-nowrap items-center" style={{ gap: '16px' }}>
+                    {testimonials.map((testimonial) => (
+                        <TestimonialCard key={testimonial._id} testimonial={testimonial} />
+                    ))}
+                </div>
             </div>
-        </div>
         </>
-        
+
     );
 };
 

@@ -3,11 +3,24 @@ import { Helmet } from 'react-helmet-async';
 import { uploadImg } from '../../../uploadFile/uploadImg';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
-const CreateBanner = () => {
+const BannerUpdate = () => {
+    const { id } = useParams();
     const axiosPublic = useAxiosPublic();
     const [loading, setLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState(null);
+
+    const { data: singleBanner = [], isLoading, isError, refetch, } = useQuery({
+        queryKey: ["singleBanner"],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/banner/${id}`);
+            return res.data;
+        },
+    });
+
+    const { bannerImg: upcommingImgUrl } = singleBanner;
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
@@ -27,20 +40,22 @@ const CreateBanner = () => {
         const form = event.target;
         const bannerImg = form.bannerImg.files[0];
 
-        let ImageUrl = '';
-        if (bannerImg?.name) {
-            ImageUrl = await uploadImg(bannerImg);
-        }
+        let ImageUrl = upcommingImgUrl;
+        if (!bannerImg?.name) {
+            ImageUrl = upcommingImgUrl;
+        };
+
+        ImageUrl = await uploadImg(bannerImg)
 
         const data = { bannerImg: ImageUrl };
 
-        axiosPublic.post(`/banner`, data)
+        axiosPublic.put(`/banner/${id}`, data)
             .then(res => {
-                if (res.data.insertedId) {
+                if (res) {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "Banner uploaded",
+                        title: "Banner updated",
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -48,13 +63,14 @@ const CreateBanner = () => {
                     // Reset form and image preview
                     form.reset();
                     setImageUrl(null);
+                    refetch();
                 }
             })
             .catch(() => {
                 Swal.fire({
                     position: "top-end",
                     icon: "error",
-                    title: "Failed to upload banner",
+                    title: "Failed to update banner",
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -65,14 +81,18 @@ const CreateBanner = () => {
     };
     window.scrollTo(0, 0);
 
-
     return (
         <div>
             <Helmet>
-                <title>Dashboard | Upload Banner</title>
+                <title>Dashboard | Update Banner</title>
             </Helmet>
             <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md">
-                <h2 className="text-xl font-semibold mb-4 text-gray-700">Upload Banner</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-700">Update Banner</h2>
+                <div className="avatar">
+                    <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
+                        <img src= {singleBanner?.bannerImg}  />
+                    </div>
+                </div>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label
@@ -141,4 +161,5 @@ const CreateBanner = () => {
     );
 };
 
-export default CreateBanner;
+export default BannerUpdate;
+

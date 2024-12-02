@@ -13,8 +13,8 @@ const UpdateNavbar= () => {
                     <div className="bg-white border-b border-gray-200">
                         <div className="container mx-auto flex flex-wrap justify-between items-center px-4 py-3">
                             {/* Logo or Business Name */}
-                            <h1 className="text-xl md:text-2xl font-bold text-red-600">
-                                Glorious Thai Spa
+                            <h1 className="text-xl md:text-2xl font-bold text-[#2563eb] ">
+                            Smart Beauty Body Spa
                             </h1>
 
                             {/* Contact Information */}
@@ -22,7 +22,7 @@ const UpdateNavbar= () => {
                                 <div className="flex  flex-wrap justify-center md:justify-end items-center space-x-4 md:space-x-8 mt-2 md:mt-0 w-full md:w-auto">
                                     {/* Address Section */}
                                     <div className="flex items-center space-x-2">
-                                        <MdLocationOn className="text-pink-600 w-5 h-5 md:w-6 md:h-6" />
+                                        <MdLocationOn className="text-[#2563eb] w-5 h-5 md:w-6 md:h-6" />
                                         <div>
                                             <p className="text-sm md:text-base text-gray-800 font-medium">
                                                 Gulshan 2 rod numbar 44
@@ -35,7 +35,7 @@ const UpdateNavbar= () => {
 
                                     {/* Phone Section */}
                                     <div className="flex items-center space-x-2">
-                                        <FaPhoneAlt className="text-pink-600 w-4 h-4 md:w-5 md:h-5" />
+                                        <FaPhoneAlt className="text-[#2563eb] w-4 h-4 md:w-5 md:h-5" />
                                         <div>
                                             <p className="text-sm md:text-base text-gray-800 font-medium">
                                                 01312742062
@@ -48,7 +48,7 @@ const UpdateNavbar= () => {
 
                                     {/* Schedule Section */}
                                     <div className="flex items-center space-x-2">
-                                        <MdAccessTime className="text-pink-600 w-5 h-5 md:w-6 md:h-6" />
+                                        <MdAccessTime className="text-[#2563eb] w-5 h-5 md:w-6 md:h-6" />
                                         <div>
                                             <p className="text-sm md:text-base text-gray-800 font-medium">
                                                 Sat - Fri: 10am-10pm
@@ -76,28 +76,28 @@ const UpdateNavbar= () => {
                                     HOME
                                 </NavLink>
                                 <NavLink
-                                    to="/services"
+                                    to="/packages"
                                     className="text-white font-medium hover:bg-pink-600 px-3 py-2 rounded-md transition"
                                 >
-                                    Services
+                                    PACKAGES
                                 </NavLink>
                                 <NavLink
                                     to="/about"
                                     className="text-white font-medium hover:bg-pink-600 px-3 py-2 rounded-md transition"
                                 >
-                                    About
+                                    ABOUT
                                 </NavLink>
                                 <NavLink
-                                    href="/contact"
+                                    to="/contact"
                                     className="text-white font-medium hover:bg-pink-600 px-3 py-2 rounded-md transition"
                                 >
-                                    Contact
+                                    CONTACT
                                 </NavLink>
                                 <NavLink
-                                    href="/gallery"
+                                    to="/gallery"
                                     className="text-white font-medium hover:bg-pink-600 px-3 py-2 rounded-md transition"
                                 >
-                                    Gallery
+                                    GALLERY
                                 </NavLink>
                             </div>
                             {/* Social Media Icons */}

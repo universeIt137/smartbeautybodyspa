@@ -24,42 +24,50 @@ import ManageTestimonial from '../pages/adminSide/testimonialRelatedPages/Manage
 import UpdateMainLayout from '../updateMainLayout/UpdateMainLayout';
 import UpdateHomePage from '../pages/clientSide/update-home-page/UpdateHomePage';
 import CreateBanner from './../pages/adminSide/bannerPage/CreateBanner';
+import ManageBanner from '../pages/adminSide/bannerPage/ManageBanner';
+import BannerUpdate from '../pages/adminSide/bannerPage/BannerUpdate';
+import CreateSliderPackage from '../pages/adminSide/slider-packages-page/CreateSliderPackage';
+import ManageSliderPackage from './../pages/adminSide/slider-packages-page/ManageSliderPackage';
+import UpdateSliderPackage from '../pages/adminSide/slider-packages-page/UpdateSliderPackage';
+import UpdateServicePage from '../pages/clientSide/update-service-page/UpdateServicePage';
+import UpdateAboutPage from '../pages/clientSide/update-about-page/UpdateAboutPage';
+import UpdateContactPage from '../pages/clientSide/update-contact-page/UpdateContactPage';
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout></MainLayout>,
-    children: [
-      {
-        path: "/",
-        element: <HomePage></HomePage>
-      },
-      {
-        path: "/packages",
-        element: <Packages></Packages>
-      },
-      {
-        path: "/package-details/:id",
-        element: <PackageDetails></PackageDetails>
-      },
-      {
-        path: "/about",
-        element: <AboutPage></AboutPage>
-      },
-      {
-        path: "/contact",
-        element: <ContactPage></ContactPage>
-      },
-      {
-        path: "/gallery",
-        element: <GalleryPage></GalleryPage>
-      },
-      {
-        path: "/book-now/:id",
-        element: <BookNowForm></BookNowForm>
-      }
-    ]
-  },
+  // {
+  //   path: "/",
+  //   element: <MainLayout></MainLayout>,
+  //   children: [
+  //     {
+  //       path: "/",
+  //       element: <HomePage></HomePage>
+  //     },
+  //     {
+  //       path: "/packages",
+  //       element: <Packages></Packages>
+  //     },
+  //     {
+  //       path: "/package-details/:id",
+  //       element: <PackageDetails></PackageDetails>
+  //     },
+  //     {
+  //       path: "/about",
+  //       element: <AboutPage></AboutPage>
+  //     },
+  //     {
+  //       path: "/contact",
+  //       element: <ContactPage></ContactPage>
+  //     },
+  //     {
+  //       path: "/gallery",
+  //       element: <GalleryPage></GalleryPage>
+  //     },
+  //     {
+  //       path: "/book-now/:id",
+  //       element: <BookNowForm></BookNowForm>
+  //     }
+  //   ]
+  // },
   {
     path: "/admin-login",
     element: <Login></Login>
@@ -74,10 +82,7 @@ const router = createBrowserRouter([
       <DashboardLayout></DashboardLayout>
     </PrivateRoutes>,
     children: [
-      {
-        path : "upload-banner",
-        element : <CreateBanner></CreateBanner>
-      },
+      
       {
         path: "/dashboard",
         element: <Dashboard></Dashboard>
@@ -113,17 +118,63 @@ const router = createBrowserRouter([
       {
         path: "manage-testimonial",
         element: <ManageTestimonial></ManageTestimonial>
+      },
+      // banner related route
+      {
+        path : "upload-banner",
+        element : <CreateBanner></CreateBanner>
+      },
+      
+      {
+        path : "manage-banner",
+        element : <ManageBanner></ManageBanner>
+      },
+      {
+        path : "banner-update/:id",
+        element : <BannerUpdate></BannerUpdate>
+      },
+      // packages slider routes
+      {
+        path : "upload-packages-slider",
+        element : <CreateSliderPackage></CreateSliderPackage>
+      },
+      {
+        path : "manage-packages-slider",
+        element : <ManageSliderPackage></ManageSliderPackage>
+      },
+      {
+        path : "update/:id",
+        element : <UpdateSliderPackage></UpdateSliderPackage>
       }
-
     ]
   },
   {
-    path : "/update",
+    path : "/",
     element : <UpdateMainLayout></UpdateMainLayout>,
     children : [
       {
         path : "",
         element : <UpdateHomePage></UpdateHomePage>
+      },
+      {
+        path : "packages",
+        element : <UpdateServicePage></UpdateServicePage>
+      },
+      {
+        path: "package-details/:id",
+        element: <PackageDetails></PackageDetails>
+      },
+      {
+        path : "about",
+        element :<UpdateAboutPage></UpdateAboutPage>
+      },
+      {
+        path : "contact",
+        element : <UpdateContactPage></UpdateContactPage>
+      },
+      {
+        path :"gallery",
+        element : <GalleryPage></GalleryPage>
       }
     ]
   }

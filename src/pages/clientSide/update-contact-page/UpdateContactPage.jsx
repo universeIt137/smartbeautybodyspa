@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactUpdate = () => {
+const UpdateContactPage = () => {
     return (
         <div>
             <div className="flex flex-col items-center justify-center bg-white my-4">
@@ -48,6 +48,7 @@ const ContactUpdate = () => {
                                         type="text"
                                         placeholder="Name"
                                         aria-label="Name"
+                                        name="name"
                                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
@@ -56,6 +57,7 @@ const ContactUpdate = () => {
                                         type="email"
                                         placeholder="Email"
                                         aria-label="Email"
+                                        name="email"
                                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
@@ -64,6 +66,7 @@ const ContactUpdate = () => {
                                         type="text"
                                         placeholder="Subject"
                                         aria-label="Subject"
+                                        name="subject"
                                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
@@ -71,6 +74,7 @@ const ContactUpdate = () => {
                                     <textarea
                                         placeholder="Message"
                                         aria-label="Message"
+                                        name="message"
                                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
                                     ></textarea>
                                 </div>
@@ -89,4 +93,4 @@ const ContactUpdate = () => {
     );
 };
 
-export default ContactUpdate;
+export default UpdateContactPage;
