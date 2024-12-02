@@ -48,6 +48,7 @@ const UpdateContactPage = () => {
                                         type="text"
                                         placeholder="Name"
                                         aria-label="Name"
+                                        name="name"
                                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
@@ -56,6 +57,7 @@ const UpdateContactPage = () => {
                                         type="email"
                                         placeholder="Email"
                                         aria-label="Email"
+                                        name="email"
                                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
@@ -64,6 +66,7 @@ const UpdateContactPage = () => {
                                         type="text"
                                         placeholder="Subject"
                                         aria-label="Subject"
+                                        name="subject"
                                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
@@ -71,6 +74,7 @@ const UpdateContactPage = () => {
                                     <textarea
                                         placeholder="Message"
                                         aria-label="Message"
+                                        name="message"
                                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
                                     ></textarea>
                                 </div>
