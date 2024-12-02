@@ -23,6 +23,7 @@ import ManageOfficeHour from '../pages/adminSide/officeHourRelatedPages/ManageOf
 import ManageTestimonial from '../pages/adminSide/testimonialRelatedPages/ManageTestimonial';
 import UpdateMainLayout from '../updateMainLayout/UpdateMainLayout';
 import UpdateHomePage from '../pages/clientSide/update-home-page/UpdateHomePage';
+import CreateBanner from './../pages/adminSide/bannerPage/CreateBanner';
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       <DashboardLayout></DashboardLayout>
     </PrivateRoutes>,
     children: [
+      {
+        path : "upload-banner",
+        element : <CreateBanner></CreateBanner>
+      },
       {
         path: "/dashboard",
         element: <Dashboard></Dashboard>

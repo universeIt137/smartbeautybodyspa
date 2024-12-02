@@ -59,7 +59,7 @@ const Sidebar = () => {
 
             <NavigationItem to="/dashboard/manage-office-hour" icon={SiNginxproxymanager} label="Manage Office Hours" />
         </>
-    
+
     const testimonialsUrls =
         <>
 
@@ -111,6 +111,11 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/createSeminar" icon={MdAddCircle} label="Create Seminar" />
             <NavigationItem to="/dashboard/manageSeminar" icon={SiNginxproxymanager} label="Manage Seminar" />
         </>
+    const bannerUrls =
+        <>
+            <NavigationItem to="/dashboard/upload-banner" icon={MdAddCircle} label="Upload Banner" />
+            <NavigationItem to="/dashboard/manage-banner" icon={SiNginxproxymanager} label="Manage Banner" />
+        </>
 
 
     return (
@@ -140,6 +145,9 @@ const Sidebar = () => {
                             icon={GrDashboard}
                             label="Dashboard"
                         />
+                        <li className="mb-4 mx-3">
+                            <Dropdown buttonText="Banner" urls={bannerUrls} />
+                        </li>
 
                         <li className="mb-4 mx-3">
                             <Dropdown buttonText="Packages" urls={packageUrls} />
@@ -165,8 +173,8 @@ const Sidebar = () => {
                             <Dropdown buttonText="Testimonial" urls={testimonialsUrls} />
                         </li>
 
-                        
-                        
+
+
 
                         <li className="mb-4 mx-3">
                             <button onClick={() => signOut(auth)} className=' px-5 py-2 rounded-lg flex gap-1 items-center hover:bg-gray-200 hover:border-transparent transition-all duration-300 active:scale-90'> Log Out <MdLogout /></button>
