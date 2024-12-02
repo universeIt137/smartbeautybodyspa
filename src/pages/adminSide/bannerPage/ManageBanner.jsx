@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ManageBanner = () => {
     const axiosPublic = useAxiosPublic();
@@ -15,7 +16,7 @@ const ManageBanner = () => {
         refetch,
     } = useQuery({
         queryKey: ["banner"],
-        
+
         queryFn: async () => {
             const res = await axiosPublic.get("/banner");
             return res.data;
@@ -95,14 +96,15 @@ const ManageBanner = () => {
                                 </td>
                                 {/* Actions */}
                                 <td className="px-6  mx-auto flex justify-center  py-4">
+                                    <Link to={`/dashboard/banner-update/${item?._id}`}>
+                                        <button
+                                            className="px-3 py-1 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-600"
+                                        >
+                                            Edit
+                                        </button>
+                                    </Link>
                                     <button
-                                        
-                                        className="px-3 py-1 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-600"
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        onClick={()=>{ handleDelete(item?._id) }}
+                                        onClick={() => { handleDelete(item?._id) }}
                                         className="ml-2 px-3 py-1 text-sm font-medium text-white bg-red-500 rounded hover:bg-red-600"
                                     >
                                         Delete

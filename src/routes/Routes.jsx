@@ -25,6 +25,7 @@ import UpdateMainLayout from '../updateMainLayout/UpdateMainLayout';
 import UpdateHomePage from '../pages/clientSide/update-home-page/UpdateHomePage';
 import CreateBanner from './../pages/adminSide/bannerPage/CreateBanner';
 import ManageBanner from '../pages/adminSide/bannerPage/ManageBanner';
+import BannerUpdate from '../pages/adminSide/bannerPage/BannerUpdate';
 
 const router = createBrowserRouter([
   {
@@ -121,6 +122,10 @@ const router = createBrowserRouter([
       {
         path : "manage-banner",
         element : <ManageBanner></ManageBanner>
+      },
+      {
+        path : "banner-update/:id",
+        element : <BannerUpdate></BannerUpdate>
       }
     ]
   },
