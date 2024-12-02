@@ -123,9 +123,15 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/manage-packages-slider" icon={MdAddCircle} label="Manage Packages Slider" />
         </>
 
-const contact =
+    const contact =
+        <>
+            <NavigationItem to="/dashboard/contact-list" icon={MdAddCircle} label="Contact list" />
+        </>
+
+const chooseUs =
 <>
-    <NavigationItem to="/dashboard/contact-list" icon={MdAddCircle} label="Contact list" />
+    <NavigationItem to="/dashboard/choose-us-upload" icon={MdAddCircle} label="Choose Us Upload" />
+    <NavigationItem to="/dashboard/choose-us-list" icon={MdAddCircle} label="Choose Us list" />
 </>
 
 
@@ -190,6 +196,10 @@ const contact =
 
                         <li className="mb-4 mx-3">
                             <Dropdown buttonText="Contact" urls={contact} />
+                        </li>
+
+                        <li className="mb-4 mx-3">
+                            <Dropdown buttonText="Why Choose Us" urls={chooseUs} />
                         </li>
 
 

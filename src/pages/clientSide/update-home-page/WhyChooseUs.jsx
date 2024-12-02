@@ -4,35 +4,35 @@ const WhyChooseUs = () => {
     const features = [
         {
             id: 1,
-            text: "Best Quality Time",
+            title: "Best Quality Time",
             icon: "🌸",
             description: "Enjoy the best moments of relaxation and care.",
             image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730875859/11.%20SPA-Center/HomePage/mtyiv5mpjecffpe5bmpi.jpg", // Replace with your image URL
         },
         {
             id: 2,
-            text: "Best Body to Body Massage",
+            title: "Best Body to Body Massage",
             icon: "🧘‍♀️",
             description: "Experience the most soothing body massage techniques.",
             image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731401272/zvsmfdptyreawyxehhwr.jpg", // Replace with your image URL
         },
         {
             id: 3,
-            text: "Best Comfortable Rooms",
+            title: "Best Comfortable Rooms",
             icon: "🚿",
             description: "Relax in our premium and cozy rooms designed for your comfort.",
             image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731401247/lj50xbncddbxz6wexx1c.jpg", // Replace with your image URL
         },
         {
             id: 4,
-            text: "Best Price",
+            title: "Best Price",
             icon: "💰",
             description: "Affordable luxury that fits your budget.",
             image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731401227/mfawgkt1ojyu8lvnfdg5.jpg", // Replace with your image URL
         },
         {
             id: 5,
-            text: "Expert Therapist",
+            title: "Expert Therapist",
             icon: "👩‍⚕️",
             description: "Our therapists are highly skilled professionals.",
             image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731401052/hnsqtgdcwmstsllbbaa0.jpg", // Replace with your image URL
@@ -64,7 +64,7 @@ const WhyChooseUs = () => {
                                         ? "bg-purple-500 text-white"
                                         : "bg-pink-100 hover:bg-pink-200"
                                         }`}>{feature.icon}</div>
-                                    <span className="lg:text-2xl font-bold mr-4">{feature.text}</span>
+                                    <span className="lg:text-2xl font-bold mr-4">{feature.title}</span>
                                 </li>
                             ))}
                         </ul>

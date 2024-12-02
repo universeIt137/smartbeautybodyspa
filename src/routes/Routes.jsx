@@ -33,6 +33,8 @@ import UpdateServicePage from '../pages/clientSide/update-service-page/UpdateSer
 import UpdateAboutPage from '../pages/clientSide/update-about-page/UpdateAboutPage';
 import UpdateContactPage from '../pages/clientSide/update-contact-page/UpdateContactPage';
 import ManageContact from '../pages/adminSide/contact-page/ManageContact';
+import WhyChooseUsCreate from './../pages/adminSide/why-choose-us-page/WhyChooseUsCreate';
+import WhyChooseUsManage from './../pages/adminSide/why-choose-us-page/WhyChooseUsManage';
 
 const router = createBrowserRouter([
   // {
@@ -151,7 +153,16 @@ const router = createBrowserRouter([
       {
         path : "contact-list",
         element : <ManageContact></ManageContact>
-      }
+      },
+      // choose us related route
+      {
+        path : "choose-us-upload",
+        element : <WhyChooseUsCreate></WhyChooseUsCreate>
+      },
+      {
+        path : "choose-us-list",
+        element : <WhyChooseUsManage></WhyChooseUsManage>
+      },
     ]
   },
   {
