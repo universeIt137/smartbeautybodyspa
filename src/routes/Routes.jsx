@@ -24,6 +24,7 @@ import ManageTestimonial from '../pages/adminSide/testimonialRelatedPages/Manage
 import UpdateMainLayout from '../updateMainLayout/UpdateMainLayout';
 import UpdateHomePage from '../pages/clientSide/update-home-page/UpdateHomePage';
 import CreateBanner from './../pages/adminSide/bannerPage/CreateBanner';
+import ManageBanner from '../pages/adminSide/bannerPage/ManageBanner';
 
 const router = createBrowserRouter([
   {
@@ -74,10 +75,7 @@ const router = createBrowserRouter([
       <DashboardLayout></DashboardLayout>
     </PrivateRoutes>,
     children: [
-      {
-        path : "upload-banner",
-        element : <CreateBanner></CreateBanner>
-      },
+      
       {
         path: "/dashboard",
         element: <Dashboard></Dashboard>
@@ -113,8 +111,17 @@ const router = createBrowserRouter([
       {
         path: "manage-testimonial",
         element: <ManageTestimonial></ManageTestimonial>
+      },
+      // banner related route
+      {
+        path : "upload-banner",
+        element : <CreateBanner></CreateBanner>
+      },
+      // manage banner 
+      {
+        path : "manage-banner",
+        element : <ManageBanner></ManageBanner>
       }
-
     ]
   },
   {
