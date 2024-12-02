@@ -3,6 +3,7 @@ import React from 'react';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 const ManageSliderPackage = () => {
   const axiosPublic = useAxiosPublic();
@@ -80,7 +81,7 @@ const ManageSliderPackage = () => {
           </tr>
         </thead>
         <tbody>
-          { sliderPackages && sliderPackages?.map((item) => (
+          {sliderPackages && sliderPackages?.map((item) => (
             <tr key={item.id} className="border-t border-gray-200">
               <td className="px-6 py-4">
                 <img src={item.image} alt={item?.title} className="w-20 h-12 object-cover rounded-lg" />
@@ -89,12 +90,13 @@ const ManageSliderPackage = () => {
               <td className="px-6 py-4">{item?.description}</td>
               <td className="px-6 py-4">{item?.priceRange}</td>
               <td className="px-6 py-4 flex gap-2">
-                <button
-                  onClick={() => handleEdit(item?.id)}
-                  className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-600"
-                >
-                  Edit
-                </button>
+                <Link to={`/dashboard/update/${item?._id}`}>
+                  <button
+                    className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-600"
+                  >
+                    Edit
+                  </button>
+                </Link>
                 <button
                   onClick={() => handleDelete(item?._id)}
                   className="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded hover:bg-red-600"

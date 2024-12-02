@@ -28,6 +28,7 @@ import ManageBanner from '../pages/adminSide/bannerPage/ManageBanner';
 import BannerUpdate from '../pages/adminSide/bannerPage/BannerUpdate';
 import CreateSliderPackage from '../pages/adminSide/slider-packages-page/CreateSliderPackage';
 import ManageSliderPackage from './../pages/adminSide/slider-packages-page/ManageSliderPackage';
+import UpdateSliderPackage from '../pages/adminSide/slider-packages-page/UpdateSliderPackage';
 
 const router = createBrowserRouter([
   {
@@ -137,6 +138,10 @@ const router = createBrowserRouter([
       {
         path : "manage-packages-slider",
         element : <ManageSliderPackage></ManageSliderPackage>
+      },
+      {
+        path : "update/:id",
+        element : <UpdateSliderPackage></UpdateSliderPackage>
       }
     ]
   },
