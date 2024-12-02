@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 const ManageBanner = () => {
     const axiosPublic = useAxiosPublic();
@@ -11,8 +12,10 @@ const ManageBanner = () => {
         data: banners = [],
         isLoading,
         isError,
+        refetch,
     } = useQuery({
         queryKey: ["banner"],
+        
         queryFn: async () => {
             const res = await axiosPublic.get("/banner");
             return res.data;
@@ -20,6 +23,7 @@ const ManageBanner = () => {
     });
 
     const handleDelete = (id) => {
+        console.log(id)
         Swal.fire({
             title: 'Are you sure?',
             text: 'You won’t be able to revert this!',
@@ -30,12 +34,12 @@ const ManageBanner = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axiosPublic
-                    .delete(`/package/${id}`)
+                    .delete(`/banner/${id}`)
                     .then((res) => {
                         if (res) {
                             Swal.fire({
                                 title: 'Deleted!',
-                                text: 'Package data has been deleted.',
+                                text: 'Banner data has been deleted.',
                                 icon: 'success',
                             });
                             refetch();
@@ -92,13 +96,13 @@ const ManageBanner = () => {
                                 {/* Actions */}
                                 <td className="px-6  mx-auto flex justify-center  py-4">
                                     <button
-                                        onClick={}
+                                        
                                         className="px-3 py-1 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-600"
                                     >
                                         Edit
                                     </button>
                                     <button
-                                        onClick={() => console.log(`Delete Banner ${i + 1}`)}
+                                        onClick={()=>{ handleDelete(item?._id) }}
                                         className="ml-2 px-3 py-1 text-sm font-medium text-white bg-red-500 rounded hover:bg-red-600"
                                     >
                                         Delete
