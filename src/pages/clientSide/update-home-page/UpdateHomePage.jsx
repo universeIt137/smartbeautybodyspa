@@ -24,7 +24,7 @@ const UpdateHomePage = () => {
       <ServiceThree></ServiceThree>
       <AboutUsTow></AboutUsTow>
       <SpaSection></SpaSection>
-      <BodyMessage></BodyMessage>
+      {/* <BodyMessage></BodyMessage> */}
       <WhyChooseUs></WhyChooseUs>
       <ServiceDetails></ServiceDetails>
       <Package></Package>

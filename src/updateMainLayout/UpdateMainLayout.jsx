@@ -4,15 +4,19 @@ import MobileNavbar from '../components/clientSide/clientNavbar/mobileNavbar'
 import Footer from '../components/clientSide/footer/Footer'
 import FloatingBtn from '../components/clientSide/floatingBtn/FloatingBtn'
 import UpdateNavbar from './../components/clientSide/update-navbar/UpdateNavbar';
+import TopBar from '../components/clientSide/clientNavbar/TopBar'
 
 const UpdateMainLayout = () => {
     return (
         <div>
-            <UpdateNavbar></UpdateNavbar>
+            <TopBar></TopBar>
+            <div className='sticky top-0 z-50 ' >
+                <UpdateNavbar></UpdateNavbar>
+            </div>
             <MobileNavbar></MobileNavbar>
             <Outlet></Outlet>
             <Footer></Footer>
-            <FloatingBtn></FloatingBtn>
+            <FloatingBtn whatsapp={"01967519562"} ></FloatingBtn>
         </div>
     )
 }

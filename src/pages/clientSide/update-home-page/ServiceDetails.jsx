@@ -11,13 +11,13 @@ const ServiceDetails = () => {
 
                 {/* Title */}
                 <h2 className="lg:text-4xl font-bold lg:mb-4 text-center">
-                    <span className="text-pink-500">About</span>{" "}
-                    <span className="text-blue-600">US!</span>
+                    <span className="text-pink-500">Service</span>{" "}
+                    <span className="text-blue-600">Details!</span>
                 </h2>
 
                 {/* Description */}
                 <p className="text-gray-700  text-justify leading-relaxed lg:text-[16px] text-[12px] ">
-                    Pure Body Spa BD is the best body massage spa in Gulshan. Our mission is
+                    Smart Beauty Body Spa BD is the best body massage spa in Gulshan. Our mission is
                     to provide you with an unparalleled spa experience that rejuvenates the
                     body, mind, and soul. With a deep commitment to your well-being, we
                     offer a range of luxurious treatments designed to restore balance and

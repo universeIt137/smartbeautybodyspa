@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
+import { IoCall } from 'react-icons/io5';
+import { MdWifiCalling3 } from 'react-icons/md';
 
 const PackageDetails = () => {
     window.scrollTo(0, 0);
@@ -37,7 +39,7 @@ const PackageDetails = () => {
                     </div>
 
                     {/* Details Section */}
-                    <div className="p-6 md:p-10">
+                    <div className="p-4 md:p-10">
                         {/* Title and Rating */}
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">{pkg?.title}</h2>
                         <div className="flex items-center text-yellow-500 mb-4">
@@ -45,6 +47,10 @@ const PackageDetails = () => {
                                 <span key={i}>⭐</span>
                             ))}
                             <span className="text-gray-500 ml-2">({pkg?.rating})</span>
+                        </div>
+
+                        <div>
+                            <h1 className='flex items-center text-3xl font-bold mb-3 gap-2 ' > <span> <MdWifiCalling3 className='text-3xl' /> </span> Contact Now : 01312742062</h1>
                         </div>
 
                         {/* Description */}
@@ -73,6 +79,7 @@ const PackageDetails = () => {
                             </Link>
                             </button>
                         </div>
+                        {/* <div><h2 className="text-xl md:text-xl font-bold mt-4 text-[#2563eb] mb-2">More details {pkg?.title} packages contact 01312742062 this number </h2></div> */}
                     </div>
                 </div>
 

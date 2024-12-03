@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { FaPhoneAlt, FaHome } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 const ContactTwo = () => {
-   
+
 
     return (
-        <div className="w-11/12 mx-auto lg:mt-24 mt-16 mb-5">
+        <div className="w-11/12 mx-auto lg:mt-24 mt-16 mb-5  ">
             {/* Header Section */}
             <div className="text-center">
                 <div>
@@ -33,7 +34,7 @@ const ContactTwo = () => {
                     </div>
                     <div className="p-4">
                         <h2 className="text-lg font-bold">Call Us</h2>
-                        <p className="text-sm">01606521176</p>
+                        <p className="text-sm">01312742062</p>
                     </div>
                 </div>
 
@@ -45,6 +46,18 @@ const ContactTwo = () => {
                     <div className="p-4">
                         <h2 className="text-lg font-bold">Address</h2>
                         <p className="text-sm">Gulshan 2, Road Number 44</p>
+                    </div>
+                </div>
+
+                {/* Address Section */}
+                <div className="flex items-center bg-pink-500 rounded-lg shadow-lg text-white">
+                    <div className="bg-purple-900 p-4 flex items-center justify-center rounded-l-lg">
+                        <MdEmail className="text-2xl" aria-label="Home Icon" />
+                    </div>
+                    <div className="p-4">
+                        <h2 className="text-lg font-bold">Email</h2>
+                        <p className="text-sm">mdhasibhowlader828@gmail.com</p>
+
                     </div>
                 </div>
             </div>

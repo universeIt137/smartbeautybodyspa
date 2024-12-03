@@ -4,7 +4,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const BodyMessage = () => {
     return (
-        <div className="bg-purple-900 my-12 " >
+        <div className="bg-[#2563eb] my-12 " >
             <div className="w-11/12 mx-auto lg:py-10 " >
                 <div className=" text-white ">
                     {/* Top Section */}
@@ -21,7 +21,7 @@ const BodyMessage = () => {
                                 Best Relaxation Body Massage in Dhaka
                             </h2>
                             <p className="lg:text-lg text-[10px] leading-relaxed text-justify ">
-                                Step into Glorious Thai Spa and embrace a world of serenity and renewal. We are not
+                                Step into Smart Beauty Body Spa and embrace a world of serenity and renewal. We are not
                                 just a spa – we are a destination for holistic well-being, a refuge for restoration, and
                                 a space to reconnect with your inner tranquility. Our dedicated team is here to guide
                                 you on a path towards wellness and self-discovery.

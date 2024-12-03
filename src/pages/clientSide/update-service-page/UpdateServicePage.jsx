@@ -5,6 +5,7 @@ import ButtonAnimation from './../../../components/clientSide/animation-button/B
 
 const UpdateServicePage = () => {
     const axiosPublic = useAxiosPublic();
+    window.scrollTo(0, 0);
 
     // Fetch packages using React Query
     const { data: massages = [], isLoading, isError } = useQuery({
@@ -36,16 +37,16 @@ const UpdateServicePage = () => {
             {/* Header Section */}
             <div className="text-center py-5 lg:py-10 bg-white">
                 <h1 className="lg:text-4xl text-[17px] font-extrabold text-pink-500">
-                    Our <span className="text-blue-500">Services!</span>
+                    Our <span className="text-blue-500">Packages!</span>
                 </h1>
                 <h2 className="lg:mt-2 lg:text-3xl text-[16px] font-bold text-blue-800">
-                    Glorious Thai Spa
+                Smart Beauty Body Spa
                 </h2>
                 <h3 className="lg:mt-1 text-[14px] lg:text-2xl font-bold text-blue-800">
                     Book Any Service From Below
                 </h3>
                 <p className="lg:mt-5 text-lg text-gray-600 text-[9px] lg:text-[17px] max-w-4xl text-justify mx-auto">
-                    Welcome to Glorious Thai Spa, your premier destination for spa
+                    Welcome to Smart Beauty Body Spa, your premier destination for spa
                     services in Dhaka. Our spa is dedicated to providing you with a
                     serene oasis where you can escape the stresses of daily life and find
                     true relaxation. Nestled in the heart of Gulshan, our expert

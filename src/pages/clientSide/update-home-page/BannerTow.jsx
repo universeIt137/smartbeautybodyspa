@@ -1,28 +1,39 @@
+import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
-const carouselItems = [
-    {
-        id: 1,
-        image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1732953824/spa-banner-14_jkkkjg.png",
-        heading: "adb",
-        title: "afdiffsfsfff"
-    },
-    {
-        id: 2,
-        image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1732953824/spa-banner-15_w1pol3.png",
-        heading: "adb",
-        title: "afdiffsfsfff"
-    },
-    {
-        id: 3,
-        image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1732953824/spa-banner-11_jy7ic7.png",
-        heading: "adb"
-    },
-];
+// const carouselItems = [
+//     {
+//         id: 1,
+//         image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1732953824/spa-banner-14_jkkkjg.png",
+//         heading: "adb",
+//         title: "afdiffsfsfff"
+//     },
+//     {
+//         id: 2,
+//         image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1732953824/spa-banner-15_w1pol3.png",
+//         heading: "adb",
+//         title: "afdiffsfsfff"
+//     },
+//     {
+//         id: 3,
+//         image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1732953824/spa-banner-11_jy7ic7.png",
+//         heading: "adb"
+//     },
+// ];
 
 const BannerTow = () => {
+    const axiosPublic= useAxiosPublic();
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const { data: carouselItems = [] } = useQuery({
+        queryKey: ['carouselItems'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/banner');
+            return res.data;
+        }
+    });
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) =>
@@ -50,7 +61,7 @@ const BannerTow = () => {
             {carouselItems.length > 0 && (
                 <div
                     className="relative py-8 lg:py-0 w-full h-[100vh] flex items-center justify-center bg-cover bg-center transition-all duration-500"
-                    style={{ backgroundImage: `url(${carouselItems[currentIndex]?.image})` }}
+                    style={{ backgroundImage: `url(${carouselItems[currentIndex]?.bannerImg})` }}
                 >
                     {/* Overlay */}
                     {/* <div className="absolute inset-0 bg-black bg-opacity-50"></div> */}
@@ -61,10 +72,10 @@ const BannerTow = () => {
                         <div className="w-full lg:w-1/2  ">
                             <h2 className="text-sm uppercase tracking-wide mb-2">Welcome to</h2>
                             <h1 className="lg:text-5xl  font-bold lg:mb-4 leading-snug">
-                                Best Spa in Dhaka Gulshan  Banani
+                            Smart Beauty Body Spa
                             </h1>
                             <p className="text-base lg:text-lg text-justify leading-relaxed mb-6">
-                                Before we talk about Spa in Gulshan, welcome to Pure Body Spa BD,
+                                Before we talk about Spa in Gulshan, welcome to Smart Beauty Body Spa                                ,
                                 your haven of tranquility and rejuvenation. Indulge in a world of
                                 ultimate relaxation as our skilled therapists guide you on a journey
                                 to restore your body and mind. Stress-relief spa therapies. Here you

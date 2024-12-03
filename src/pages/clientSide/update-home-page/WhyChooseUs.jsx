@@ -76,19 +76,20 @@ const WhyChooseUs = () => {
                     </div>
 
                     {/* Right Side */}
-                    <div className="w-full lg:w-1/2 h-full lg:mb-10 mb-4 mt-3 lg:mt-0">
+                    <div className="w-full    lg:w-1/2 h-[72vh] lg:mb-10 mb-4 mt-3 lg:mt-0">
                         <div
-                            className="rounded-lg shadow-lg w-full p-6 bg-cover bg-center"
+                            className="   rounded-lg shadow-lg w-full bg-cover bg-center"
                             style={{
+                                
                                 height: "100%",
                                 backgroundImage: `url('${selectedFeature.image}')`,
                             }}
                         >
-                            <div className="bg-white bg-opacity-50 p-4 rounded-lg">
-                                <h3 className="lg:text-2xl font-semibold lg:mb-4">
+                            <div className=" bg-black opacity-60  p-4 h-[72vh] rounded-lg">
+                                <h3 className="lg:text-2xl text-white font-semibold lg:mb-4">
                                     {selectedFeature.title}
                                 </h3>
-                                <p className="text-[12px] lg:text-base text-gray-700">
+                                <p className="text-[12px] lg:text-base text-white font-semibold ">
                                     {selectedFeature.description}
                                 </p>
                             </div>

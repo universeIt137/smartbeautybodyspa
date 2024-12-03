@@ -52,14 +52,14 @@ const UpdateContactPage = () => {
     return (
         <div>
             <Helmet>
-                <title>Pure Body Spa BD | Contact Us</title>
+                <title>Smart Beauty Body Spa BD | Contact Us</title>
             </Helmet>
             <div className="flex flex-col items-center justify-center bg-white my-4">
                 <h1 className="lg:text-4xl font-bold text-pink-500">
                     Contact <span className="text-blue-500">us!</span>
                 </h1>
                 <p className="lg:mt-4 text-[10px] lg:text-[16px] text-gray-600 text-justify max-w-2xl">
-                    At Pure Body Spa BD, we’re dedicated to providing you with the ultimate relaxation
+                    At Smart Beauty Body Spa BD, we’re dedicated to providing you with the ultimate relaxation
                     experience. If you have any questions, concerns, or if you’d like to schedule an
                     appointment to unwind and rejuvenate, please don’t hesitate to get in touch with us.
                     Our knowledgeable and friendly team is here to assist you.

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { TfiMenuAlt } from 'react-icons/tfi';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-const MobileNavbar = ({name}) => {
+const MobileNavbar = ({ name }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
@@ -21,23 +21,19 @@ const MobileNavbar = ({name}) => {
         { path: "/about", name: "About" },
         { path: "/contact", name: "Contact" },
         { path: "/gallery", name: "Gallery" }
-      ];
+    ];
 
     return (
         <div className='bg-white shadow-xl py-2 lg:py-0 px-4'>
             <div className='flex lg:hidden items-center justify-between'>
                 {/* Logo */}
                 <div className='bg-white rounded-full p-1 shadow-2xl shadow-black'>
-                    <NavLink to="/">
-                        <img
-                            className='w-10 rounded-full'
-                            src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730869312/11.%20SPA-Center/tanxlvp3dggfnhgkftnl.png"
-                            alt="Logo"
-                        />
-                    </NavLink>
+                    <Link className='lg:hidden ' to={`/`}>
+                        <img className='w-56' src=" https://res.cloudinary.com/dnvmj9pvk/image/upload/v1733206857/smart-beauty-spa-logo_r1nrfj.png" alt="" />
+                    </Link>
                 </div>
 
-                <p className='text-[#DC2626] font-bold text-xl'>{ name }</p>
+                <p className='text-[#DC2626] font-bold text-xl'>{name}</p>
 
                 {/* Toggle Button for Mobile Devices */}
                 <button onClick={toggleDrawer} className='text-black'>
@@ -70,7 +66,7 @@ const MobileNavbar = ({name}) => {
                                     </NavLink>
                                 </li>
                             ))}
-                            
+
                             {/* Additional dropdown for Gallery */}
                             {/* <li>
                                 <button onClick={toggleGalleryDropdown} className='w-full text-left text-lg font-medium text-gray-100 hover:bg-green-600 hover:text-white px-4 py-2 rounded-md'>

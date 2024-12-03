@@ -7,12 +7,13 @@ import OurExperts from '../update-home-page/OurExperts';
 import OurTiming from '../update-home-page/OurTiming';
 import Visite from '../update-home-page/Visite';
 import PhotoGallery from '../../../components/clientSide/gallery/PhotoGallery';
+import SpaSection from '../update-home-page/SpaSection';
 
 const UpdateAboutPage = () => {
     return (
         <div>
             <AboutUsTow></AboutUsTow>
-            <BodyMessage></BodyMessage>
+            <SpaSection></SpaSection>
             <WhyChooseUs></WhyChooseUs>
             <PhotoGallery></PhotoGallery>
             <Testimonials></Testimonials>

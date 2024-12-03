@@ -29,7 +29,7 @@ const SpaSection = () => {
                         </h1>
                         <div className="w-16 h-1 bg-gray-400 lg:mb-6 my-2 mx-auto md:mx-0"></div>
                         <p className="lg:text-lg text-[10px] text-gray-300 text-justify leading-relaxed lg:mb-6">
-                            Step into Pure Body Spa and embrace a world of serenity and
+                            Step into Smart Beauty Body Spa and embrace a world of serenity and
                             renewal. We are not just a spa – we are a destination for
                             holistic well-being, a refuge for restoration, and a space to
                             reconnect with your inner tranquility. We look forward to

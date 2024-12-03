@@ -17,7 +17,7 @@ const ServiceTow = () => {
                 <div className=" text-[10px] lg:text-[16px] text-justify text-gray-700">
                     <p className="text-lg leading-relaxed">
                         Indulge in the ultimate relaxation and wellness experience with our
-                        exceptional spa services in Dhaka. At <b>Glorious Thai Spa</b>, we
+                        exceptional spa services in Dhaka. At <b>Smart Beauty Body Spa</b>, we
                         offer a comprehensive range of treatments that cater to your every
                         need. Immerse yourself in the soothing ambiance of our spa as our
                         skilled therapists transport you to a world of tranquility. Choose
