@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const Package = () => {
     const [startIndex, setStartIndex] = useState(0);
@@ -70,14 +71,14 @@ const Package = () => {
             }}
         >
             <div className="w-11/12 mx-auto">
-                <h1 className="text-white z-30 text-center lg:text-xl font-bold py-6 lg:py-8">
+                <h1 className="text-white z-30 text-center lg:text-4xl font-bold py-6 lg:py-8">
                     Let's Choose Your Desire Package
                 </h1>
                 <div className="relative flex items-center">
                     {/* Previous Button */}
                     <button
                         onClick={handlePrev}
-                        className="absolute left-0 bg-purple-700 text-white p-2 rounded-full hover:bg-purple-800 z-10"
+                        className="absolute left-0 bg-[#2563EB] text-white p-2 rounded-full  z-10"
                     >
                         <FaChevronLeft />
                     </button>
@@ -97,14 +98,14 @@ const Package = () => {
                                 <h3 className="text-lg font-bold text-center mb-2">{service.title}</h3>
                                 <div className="space-y-1">
                                     {service.durations.map((price, idx) => (
-                                        <p key={idx} className="text-lg text-center ">
-                                            {price.time} Minutes -- {price.price}
+                                        <p key={idx} className="text-xl flex items-center justify-between  ">
+                                            {price.time} Minutes <span className="flex items-center " >{price.price} <img className="w-4"  src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1733050377/money_b7aits.png" alt="" /> </span>
                                         </p>
                                     ))}
                                 </div>
-                                <button className="mt-4 w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-700">
-                                    Book Now
-                                </button>
+                                <Link to={`/package-details/${service?._id}`}> <button className="mt-4 w-full bg-[#2563EB] text-lg font-semibold text-white py-2 rounded-md ">
+                                    Details
+                                </button> </Link>
                             </div>
                         ))}
                     </div>
@@ -112,7 +113,7 @@ const Package = () => {
                     {/* Next Button */}
                     <button
                         onClick={handleNext}
-                        className="absolute right-0 bg-purple-700 text-white p-2 rounded-full hover:bg-purple-800 z-10"
+                        className="absolute right-0 bg-[#2563EB] text-white p-2 rounded-full  z-10"
                     >
                         <FaChevronRight />
                     </button>
