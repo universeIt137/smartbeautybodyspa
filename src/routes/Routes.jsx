@@ -35,6 +35,7 @@ import UpdateContactPage from '../pages/clientSide/update-contact-page/UpdateCon
 import ManageContact from '../pages/adminSide/contact-page/ManageContact';
 import WhyChooseUsCreate from './../pages/adminSide/why-choose-us-page/WhyChooseUsCreate';
 import WhyChooseUsManage from './../pages/adminSide/why-choose-us-page/WhyChooseUsManage';
+import WhyChooseUsUpdate from './../pages/adminSide/why-choose-us-page/WhyChooseUsUpdate';
 
 const router = createBrowserRouter([
   // {
@@ -65,10 +66,7 @@ const router = createBrowserRouter([
   //       path: "/gallery",
   //       element: <GalleryPage></GalleryPage>
   //     },
-  //     {
-  //       path: "/book-now/:id",
-  //       element: <BookNowForm></BookNowForm>
-  //     }
+      
   //   ]
   // },
   {
@@ -163,6 +161,10 @@ const router = createBrowserRouter([
         path : "choose-us-list",
         element : <WhyChooseUsManage></WhyChooseUsManage>
       },
+      {
+        path : "chooseUs-update/:id",
+        element : <WhyChooseUsUpdate></WhyChooseUsUpdate>
+      }
     ]
   },
   {
@@ -192,6 +194,11 @@ const router = createBrowserRouter([
       {
         path :"gallery",
         element : <GalleryPage></GalleryPage>
+      },
+      // book now related routes
+      {
+        path: "/book-now/:id",
+        element: <BookNowForm></BookNowForm>
       }
     ]
   }

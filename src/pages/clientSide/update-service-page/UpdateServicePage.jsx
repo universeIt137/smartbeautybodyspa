@@ -1,74 +1,9 @@
-import React from "react";
-import { FaStar, FaPhoneAlt } from "react-icons/fa"; // Import icons from react-icons
-import ButtonAnimation from "../../../components/clientSide/animation-button/ButtonAnimation";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-
-// const massages = [
-//     {
-//         title: "Dry Massage",
-//         image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1732953824/spa-banner-15_w1pol3.png", // Replace with actual image URL
-//         rating: 5.0,
-//         price: [
-//             { duration: "60 Minutes", cost: "4000৳" },
-//             { duration: "90 Minutes", cost: "6000৳" },
-//             { duration: "120 Minutes", cost: "8000৳" },
-//         ],
-//     },
-//     {
-//         title: "Nuru Massage",
-//         image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1732953824/spa-banner-14_jkkkjg.png", // Replace with actual image URL
-//         rating: 5.0,
-//         price: [
-//             { duration: "60 Minutes", cost: "8000৳" },
-//             { duration: "90 Minutes", cost: "11000৳" },
-//             { duration: "120 Minutes", cost: "16000৳" },
-//         ],
-//     },
-//     {
-//         title: "Back & Shoulder Massage",
-//         image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730875859/11.%20SPA-Center/HomePage/mtyiv5mpjecffpe5bmpi.jpg", // Replace with actual image URL
-//         rating: 5.0,
-//         price: [
-//             { duration: "60 Minutes", cost: "4000৳" },
-//             { duration: "90 Minutes", cost: "6000৳" },
-//             { duration: "120 Minutes", cost: "8000৳" },
-//         ],
-//     },
-//     {
-//         title: "Dry Massage",
-//         image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1732953824/spa-banner-15_w1pol3.png", // Replace with actual image URL
-//         rating: 5.0,
-//         price: [
-//             { duration: "60 Minutes", cost: "4000৳" },
-//             { duration: "90 Minutes", cost: "6000৳" },
-//             { duration: "120 Minutes", cost: "8000৳" },
-//         ],
-//     },
-//     {
-//         title: "Nuru Massage",
-//         image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1732953824/spa-banner-14_jkkkjg.png", // Replace with actual image URL
-//         rating: 5.0,
-//         price: [
-//             { duration: "60 Minutes", cost: "8000৳" },
-//             { duration: "90 Minutes", cost: "11000৳" },
-//             { duration: "120 Minutes", cost: "16000৳" },
-//         ],
-//     },
-//     {
-//         title: "Back & Shoulder Massage",
-//         image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730875859/11.%20SPA-Center/HomePage/mtyiv5mpjecffpe5bmpi.jpg", // Replace with actual image URL
-//         rating: 5.0,
-//         price: [
-//             { duration: "60 Minutes", cost: "4000৳" },
-//             { duration: "90 Minutes", cost: "6000৳" },
-//             { duration: "120 Minutes", cost: "8000৳" },
-//         ],
-//     },
-// ];
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { FaStar } from "react-icons/fa";
+import ButtonAnimation from './../../../components/clientSide/animation-button/ButtonAnimation';
 
 const UpdateServicePage = () => {
-
     const axiosPublic = useAxiosPublic();
 
     // Fetch packages using React Query
@@ -79,6 +14,22 @@ const UpdateServicePage = () => {
             return res.data;
         },
     });
+
+    if (isLoading) {
+        return (
+            <div className="text-center py-10">
+                <p>Loading services...</p>
+            </div>
+        );
+    }
+
+    if (isError || !Array.isArray(massages)) {
+        return (
+            <div className="text-center py-10">
+                <p>Failed to load services. Please try again later.</p>
+            </div>
+        );
+    }
 
     return (
         <div className="w-11/12 mx-auto">
@@ -107,28 +58,28 @@ const UpdateServicePage = () => {
 
             {/* Services Section */}
             <div className="flex justify-center mb-4 items-center gap-6 flex-wrap">
-                {massages?.map((massage, index) => (
+                {massages.map((massage, index) => (
                     <div
                         key={index}
                         className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 max-w-xs"
                     >
                         {/* Image */}
                         <img
-                            src={massage.ImageUrl}
-                            alt={massage.title}
+                            src={massage?.ImageUrl}
+                            alt={massage?.title}
                             className="w-full h-56 object-cover"
                         />
 
                         {/* Details */}
                         <div className="p-4 bg-[#2563EB] text-white">
-                            <h3 className="text-xl font-bold text-center">{massage.title}</h3>
+                            <h3 className="text-xl font-bold text-center">{massage?.title}</h3>
 
                             {/* Rating */}
                             <div className="flex justify-center items-center my-2">
                                 <span className="text-white text-lg font-semibold">
-                                    {massage.rating}
+                                    {massage?.rating || "N/A"}
                                 </span>
-                                <div className="ml-2 flex items-center ">
+                                <div className="ml-2 flex items-center">
                                     {Array.from({ length: 5 }, (_, i) => (
                                         <FaStar
                                             key={i}
@@ -141,17 +92,24 @@ const UpdateServicePage = () => {
 
                             {/* Price List */}
                             <ul className="text-center space-y-2 my-4">
-                                {massage.durations.map((item, idx) => (
-                                    <li key={idx} className="flex items-center justify-between font-bold text-lg ">
-                                        <span>{item.time} Minutes </span>
-                                        <span className="flex justify-between items-center gap-2 " >{item.price} <img className="w-4  " src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1733050653/taka_drhiqj.png" alt="" /> </span>
+                                {massage?.durations?.map((item, idx) => (
+                                    <li key={idx} className="flex items-center justify-between font-bold text-lg">
+                                        <span>{item?.time} Minutes</span>
+                                        <span className="flex justify-between items-center gap-2">
+                                            {item?.price}{" "}
+                                            <img
+                                                className="w-4"
+                                                src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1733050653/taka_drhiqj.png"
+                                                alt=""
+                                            />
+                                        </span>
                                     </li>
                                 ))}
                             </ul>
 
                             {/* Call Button */}
-                            <button className="w-full py-2 mt-4  text-white rounded-md transition flex items-center justify-center gap-2">
-                                <ButtonAnimation id={massage?._id}  ></ButtonAnimation>
+                            <button className="w-full py-2 mt-4 text-white rounded-md transition flex items-center justify-center gap-2">
+                                <ButtonAnimation id={massage?._id}></ButtonAnimation>
                             </button>
                         </div>
                     </div>

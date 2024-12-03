@@ -60,8 +60,8 @@ const WhyChooseUsCreate = () => {
     let payload = {
       title,
       description,
-      icon: imgUrl,
-      image,
+      icon: iconUrl,
+      image : imgUrl ,
     }
 
 
