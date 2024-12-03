@@ -32,6 +32,10 @@ import UpdateSliderPackage from '../pages/adminSide/slider-packages-page/UpdateS
 import UpdateServicePage from '../pages/clientSide/update-service-page/UpdateServicePage';
 import UpdateAboutPage from '../pages/clientSide/update-about-page/UpdateAboutPage';
 import UpdateContactPage from '../pages/clientSide/update-contact-page/UpdateContactPage';
+import ManageContact from '../pages/adminSide/contact-page/ManageContact';
+import WhyChooseUsCreate from './../pages/adminSide/why-choose-us-page/WhyChooseUsCreate';
+import WhyChooseUsManage from './../pages/adminSide/why-choose-us-page/WhyChooseUsManage';
+import WhyChooseUsUpdate from './../pages/adminSide/why-choose-us-page/WhyChooseUsUpdate';
 
 const router = createBrowserRouter([
   // {
@@ -62,10 +66,7 @@ const router = createBrowserRouter([
   //       path: "/gallery",
   //       element: <GalleryPage></GalleryPage>
   //     },
-  //     {
-  //       path: "/book-now/:id",
-  //       element: <BookNowForm></BookNowForm>
-  //     }
+      
   //   ]
   // },
   {
@@ -145,6 +146,24 @@ const router = createBrowserRouter([
       {
         path : "update/:id",
         element : <UpdateSliderPackage></UpdateSliderPackage>
+      },
+      // contact related routes
+      {
+        path : "contact-list",
+        element : <ManageContact></ManageContact>
+      },
+      // choose us related route
+      {
+        path : "choose-us-upload",
+        element : <WhyChooseUsCreate></WhyChooseUsCreate>
+      },
+      {
+        path : "choose-us-list",
+        element : <WhyChooseUsManage></WhyChooseUsManage>
+      },
+      {
+        path : "chooseUs-update/:id",
+        element : <WhyChooseUsUpdate></WhyChooseUsUpdate>
       }
     ]
   },
@@ -175,6 +194,11 @@ const router = createBrowserRouter([
       {
         path :"gallery",
         element : <GalleryPage></GalleryPage>
+      },
+      // book now related routes
+      {
+        path: "/book-now/:id",
+        element: <BookNowForm></BookNowForm>
       }
     ]
   }

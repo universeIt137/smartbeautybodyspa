@@ -63,7 +63,7 @@ const BookNowForm = ({ packageTitle, packageId }) => {
     return (
         <div className="min-h-screen">
 
-            <h2 className="lg:text-3xl font-bold mb-4 text-center text-pink-600 mt-10">
+            <h2 className="lg:text-3xl font-bold mb-4 text-center text-[#2563EB] mt-10">
                 Book Now for {pkg?.title}
             </h2>
             <div className="flex justify-center  p-4  ">
@@ -78,7 +78,7 @@ const BookNowForm = ({ packageTitle, packageId }) => {
                     {loading && (
                         <div className="absolute inset-0 bg-white bg-opacity-75 flex justify-center items-center">
                             <svg
-                                className="animate-spin h-8 w-8 text-teal-500"
+                                className="animate-spin h-8 w-8 text-[#2563EB]"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             >
                                 <circle
@@ -108,7 +108,7 @@ const BookNowForm = ({ packageTitle, packageId }) => {
                                 defaultValue={pkg?.title}
                                 required
                                 placeholder="Your package Name"
-                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
                                 disabled={loading} // Disable input when loading
                             />
                         </div>
@@ -123,7 +123,7 @@ const BookNowForm = ({ packageTitle, packageId }) => {
                                 onChange={handleChange}
                                 required
                                 placeholder="Your Full Name"
-                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
                                 disabled={loading} // Disable input when loading
                             />
                         </div>
@@ -138,7 +138,7 @@ const BookNowForm = ({ packageTitle, packageId }) => {
                                 onChange={handleChange}
                                 required
                                 placeholder="Your Email"
-                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
                                 disabled={loading}
                             />
                         </div>
@@ -153,7 +153,7 @@ const BookNowForm = ({ packageTitle, packageId }) => {
                                 onChange={handleChange}
                                 required
                                 placeholder="Your Phone Number"
-                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
                                 disabled={loading}
                             />
                         </div>
@@ -168,7 +168,7 @@ const BookNowForm = ({ packageTitle, packageId }) => {
                                 onChange={handleChange}
                                 required
                                 placeholder="Your Address"
-                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
                                 disabled={loading}
                             />
                         </div>
@@ -181,7 +181,7 @@ const BookNowForm = ({ packageTitle, packageId }) => {
                                 value={formData.notes}
                                 onChange={handleChange}
                                 placeholder="Any additional information or requests"
-                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
                                 disabled={loading}
                             ></textarea>
                         </div>
@@ -190,7 +190,7 @@ const BookNowForm = ({ packageTitle, packageId }) => {
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        className="w-full py-2 px-4 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        className="w-full py-2 px-4 bg-[#2563EB] text-white font-semibold rounded-lg  focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
                         disabled={loading} // Disable button when loading
                     >
                         {loading ? 'Booking...' : 'Confirm Booking'}
