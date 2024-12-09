@@ -53,7 +53,7 @@ const BannerTow = () => {
                     style={{ backgroundImage: `url(${carouselItems[currentIndex]?.image})` }}
                 >
                     {/* Overlay */}
-                    {/* <div className="absolute inset-0 bg-black bg-opacity-50"></div> */}
+                    <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
                     {/* Content */}
                     <div className="relative   z-10 w-11/12 max-w-7xl mx-auto  text-center lg:text-left flex flex-col lg:flex-row items-center gap-x-16 lg:-mt-20 ">

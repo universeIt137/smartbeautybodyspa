@@ -9,7 +9,7 @@ const FloatingBtn = ({whatsapp, phone}) => {
                 {/* Phone Call Button */}
                 <button className="bg-green-500 p-3 rounded-full text-white shadow-lg hover:bg-green-600 transition duration-300">
                     <a
-                        href={`tel:+88${phone}`}
+                        href={`tel:+8801967519562`}
                         className="flex items-center text-white text-xs sm:text-base flex-col"
                     >
                         <FaPhone size={24} />
@@ -19,7 +19,7 @@ const FloatingBtn = ({whatsapp, phone}) => {
                 {/* WhatsApp Button */}
                 <button className="bg-green-500 p-3 rounded-full text-white shadow-lg hover:bg-green-600 transition duration-300">
                     <a
-                        href={`https://wa.me/+88${whatsapp}`}
+                        href={`https://wa.me/+8801312742062`}
                         className="text-white text-lg sm:text-2xl"
                         target="_blank"
                         rel="noopener noreferrer"
