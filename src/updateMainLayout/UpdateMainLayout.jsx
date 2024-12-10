@@ -16,7 +16,7 @@ const UpdateMainLayout = () => {
             <MobileNavbar></MobileNavbar>
             <Outlet></Outlet>
             <Footer></Footer>
-            <FloatingBtn whatsapp={"01967519562"} ></FloatingBtn>
+            <FloatingBtn whatsapp={"01967519562"} phone = {"01312742062" } ></FloatingBtn>
         </div>
     )
 }
